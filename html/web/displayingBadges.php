@@ -174,7 +174,7 @@ function initializingBadge($instance){
                                 </div>
                                 <div class="modal-body">
                                     <p>Some text in the Modal Body</p>
-                                    <p>Some other text...</p>
+                                    <p>Testing git</p>
                                 </div>
                                 <div class="modal-footer">
                                     <h3>Modal Footer</h3>
