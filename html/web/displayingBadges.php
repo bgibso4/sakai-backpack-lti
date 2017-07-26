@@ -52,6 +52,7 @@ function initializingBadge($instance){
         <title>All Badges</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="../css/basic.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     </head>
     <?php
@@ -122,6 +123,29 @@ function initializingBadge($instance){
                 Passport / Badge Groups
             </p>
         </div>
+        <ul id="links">
+
+        </ul>
+        <script type="text/javascript">
+            // Create the new element
+            var li = document.createElement('li');
+            //var li = $('<li></li>').addClass('task');
+            li.className = 'dynamic-link'; // Class name
+            li.innerHTML = "hello"; // Text inside
+            var options = '';
+
+            for(var i = 0; i < 4; i++)
+                options += li.innerHTML;
+
+            document.getElementById('links').innerHTML = options;
+            function showDetails(badge) {
+                document.getElementById('modalTitle').innerHTML = badge.getAttribute("data-badgeName");
+                //document.getElementById('modalBody').innerHTML = "<badge.getAttribute('data-badgeImage') +;
+                modal.style.display = "block";
+            }
+
+        </script>
+
         <div class="badgeDisplayGrid">
             <table>
                 <tr>
@@ -136,32 +160,76 @@ function initializingBadge($instance){
                             <small><?php echo $badgeArray[0]->getIssuer()->getName()?></small>
                         </button>
                         -->
-                        <div role="button" onclick="alert('You are clicking on me');" class="badgeButton">
-                            <img src="<?php echo($badgeArray[0]->getImage())?>" width="150px" height="150px">
-                            <br>
-                            <div class="badgeTitle">
-                                <?php echo $badgeArray[0]->getName()?>
-                            </div>
+                        <div id="allBadges"></div>
 
-                            <br>
-                            <div class="badgeIssuerName">
-                                <?php echo $badgeArray[0]->getIssuer()->getName()?>
-                            </div>
-                        </div>
+                        <script type="text/javascript">
+                            var badgeBox;
+                            var badgeName;
+                            var badgeImage;
+                            var badgeIssuerName;
+                            for (var i=0; i < <?php echo $numBadges?>; i++){
 
-                        <div role="button" class="badgeButton" id="mod">
-                            <img src="<?php echo($badgeArray[0]->getImage())?>" width="150px" height="150px">
-                            <br>
-                            <div class="badgeTitle">
-                                <?php echo $badgeArray[0]->getName()?>
-                            </div>
+                                badgeBox= badgeBox + "<div role='button' class='badgeButton' id='mod'>" + "<img src='<?php echo($badgeArray[0]->getImage())?>'"
+                            }
+                            <?php
+                                foreach($badgeArray as $badge){
+                                    echo $badge->getImage();
+                                }
+                            ?>
 
-                            <br>
-                            <div class="badgeIssuerName">
-                                <?php echo $badgeArray[0]->getIssuer()->getName()?>
-                            </div>
 
-                        </div>
+                        </script>
+
+
+                        <?php
+                        foreach($badgeArray as $inst){
+                            $name= $inst->getName();
+                            $imageLink= $inst->getImage();
+                            $issuerName=$inst->getIssuer()->getName();
+                            echo("<div role=\"button\" onclick=\"showDetails(this)\" class=\"badgeButton\" data-badgeName='$name' >");
+
+                            echo("<img src='$imageLink' width=\"150px\" height=\"150px\">");
+                            echo("<br>");
+
+                            echo("<div class=\"badgeTitle\" id=\"\">$name</div>");
+
+                            echo("<br>");
+
+                            echo("<div class=\"badgeIssuerName\">$issuerName</div>");
+                            echo("</div>");
+                        }
+
+
+
+
+                        ?>
+
+<!--                        <div role="button" onclick="alert('You are clicking on me');" class="badgeButton">-->
+<!--                            <img src="--><?php //echo($badgeArray[0]->getImage())?><!--" width="150px" height="150px">-->
+<!--                            <br>-->
+<!--                            <div class="badgeTitle" id="">-->
+<!--                                --><?php //echo $badgeArray[0]->getName()?>
+<!--                            </div>-->
+<!---->
+<!--                            <br>-->
+<!--                            <div class="badgeIssuerName">-->
+<!--                                --><?php //echo $badgeArray[0]->getIssuer()->getName()?>
+<!--                            </div>-->
+<!--                        </div>-->
+<!---->
+<!--                        <div role="button" class="badgeButton" id="mod">-->
+<!--                            <img src="--><?php //echo($badgeArray[0]->getImage())?><!--" width="150px" height="150px">-->
+<!--                            <br>-->
+<!--                            <div class="badgeTitle">-->
+<!--                                --><?php //echo $badgeArray[0]->getName()?>
+<!--                            </div>-->
+<!---->
+<!--                            <br>-->
+<!--                            <div class="badgeIssuerName">-->
+<!--                                --><?php //echo $badgeArray[0]->getIssuer()->getName()?>
+<!--                            </div>-->
+<!---->
+<!--                        </div>-->
                         
                         <!-- The Modal -->
                         <div id="myModal" class="modal">
@@ -170,7 +238,7 @@ function initializingBadge($instance){
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <span class="close">&times;</span>
-                                    <h2>Modal Header</h2>
+                                    <h2 id="modalTitle"></h2>
                                 </div>
                                 <div class="modal-body">
                                     <p>Some text in the Modal Body</p>
@@ -188,7 +256,7 @@ function initializingBadge($instance){
                             var modal = document.getElementById('myModal');
 
                             // Get the button that opens the modal
-                            var btn = document.getElementById("mod");
+                            var btn = document.getElementsByClassName("badgeButton");
 
                             // Get the <span> element that closes the modal
                             var span = document.getElementsByClassName("close")[0];
@@ -196,6 +264,7 @@ function initializingBadge($instance){
                             // When the user clicks the button, open the modal
                             btn.onclick = function() {
                                 modal.style.display = "block";
+
                             }
 
                             // When the user clicks on <span> (x), close the modal
