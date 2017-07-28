@@ -2,7 +2,7 @@
     <head>
         <title>All Badges</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="../css/basic.css">
+        <link rel="stylesheet" type="text/css" href="../css/basic2.css">
     
     </head>
     <body>
@@ -52,7 +52,7 @@
             
             <nav class="navbar">
                 <div class="logo">
-                    <img src="../images/cancred-passport-logo.png"  width="300px" height="42px">
+                    <img src="../images/western-logo.gif"  width="250px" height="50px">
                 </div>
                 <div class="nav-list">
                     <br>
@@ -83,47 +83,60 @@
         </div>
         <table width="95%">
             <tr>
-                <td width=10%>
+                <td width=12%>
                     <div class="side-menu">
                         <ul>
                             <li><a href="selectingGroups.php"><b>MY BADGES</b></a></li>
                         </ul>
                     </div>
                 </td>
-                <td width="80%">
-                    <form action="displayingBadges.php" method="get">
+                <td width="78%">
+                    <script>
+                        function checkForm()    {
+
+                            var condition = true;
+                            if('<?php echo $_GET['groupChoice']?>'===""){
+                                alert("Please select a group");
+                                condition = false;
+                            }
+                            else if ('<?php echo $_GET['groupChoice']?>'==="Choose Here"){
+                                alert("Please select a group");
+                                condition = false;
+                            }
+                            if(condition){ condition =  confirm('Do you want to submit the form?'); }
+
+                            return condition;
+                        }
+                    </script>
+                    <form action="displayingBadges.php" method="get" id="group" onsubmit="return checkForm()">
                         <div class="search-Criteria">
                             <table>
                                 <tr class="form-group">
 
                                     <td>
-                                        <label class="search-labels" for="groupSearch">Search:</label>
+                                        <label class="search-labels" for="groupSearch">Pick from one of your groups:</label>
                                     </td>
                                     <td>
                                         <div class="groupChoices">
-                                            <input list="choices" id="groupSearch" name="groupChoice">
-                                            <datalist id="choices">
-                                                <!--
-                                                <option></option>
-                                                <option>Luke</option>
-                                                <option>Anthony</option>
-                                                -->
-                                            </datalist>
+                                            <!--<input list="choices" id="grouSearch" name="grouChoice">-->
+                                            <select  name="groupChoice" id="groupSearch" form="group" class="groupText">
+                                            </select>
                                             <script type="text/javascript">
                                                 var allGroups = <?php echo json_encode($groups)?>;
 
+                                                //var options = '<option class="groupText" selected="selected" disabled="disabled" hidden="hidden">Choose here</option>';
                                                 var options = '';
 
-                                                for(var i = 0; i < allGroups.length; i++)
-                                                    options += '<option value="'+allGroups[i]+'" />';
-
-                                                document.getElementById('choices').innerHTML = options;
+                                                for(var i = 0; i < allGroups.length; i++) {
+                                                    options += '<option class="groupText" value="'+allGroups[i]+'">'+allGroups[i]+'</option>';
+                                                }
+                                                document.getElementById('groupSearch').innerHTML = options;
                                             </script>
                                         </div>
                                         
                                     </td>
                                 </tr>
-                                <!--
+
                                 <tr>
                                     <td>
                                         <br>
@@ -132,7 +145,7 @@
                                 </tr>
                                 <tr class="form-group">
                                     <td>
-                                        <label class="search-labels" for="grid-search-badgeSearch">Tags:</label>
+                                        <label class="search-labels" for="grid-search-tagFiltered">Tags:</label>
                                     </td>
                                     <td>
                                         <input type="text" name="badgeTags" id="grid-search-tagFiltered"><br>
@@ -147,7 +160,7 @@
                                     <label class="radio-inline" for="radio-date">
                                         <input type="radio" id="radio-date" name="order" value="mtime">
 
-                                        by date modified
+                                        by creation date
                                     </label>
                                     <label class="radio-inline" for="radio-name">
                                         <input type="radio" id="radio-name" name="order" value="name">
@@ -166,26 +179,20 @@
                                     </label>
                                 </div>
                             </fieldset>
-                            -->
 
-
-                                <!--this tag is temporary -->
-                            </table>
 
                             <br>
                             <input type="submit" value="Confirm">
                         </div>
 
                     </form>
+
                 </td>
             </tr>
             
 
 
         </table>
-
-
-
 
         
     </body>

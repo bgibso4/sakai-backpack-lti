@@ -120,6 +120,7 @@ nav li{
 
 .badgeTitle{
     font-size: 24px;
+    color: orange;
 }
 
 .modal {
@@ -153,18 +154,19 @@ nav li{
 /* Modal Header */
 .modal-header {
     padding: 2px 16px;
-    background-color: #5cb85c;
+    background-color: #2E3336;
     color: white;
 }
 
 /* Modal Body */
-.modal-body {padding: 2px 16px;}
+.modal-body {
+    padding: 2px 16px;
+}
 
 /* Modal Footer */
 .modal-footer {
     padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
+    background-color: #2E3336;
 }
 
 /* Modal Content */
@@ -174,7 +176,7 @@ nav li{
     margin: auto;
     padding: 0;
     border: 1px solid #888;
-    width: 80%;
+    width: 60%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
@@ -191,4 +193,18 @@ nav li{
 @keyframes animatetop {
     from {top: -300px; opacity: 0}
     to {top: 0; opacity: 1}
+}
+
+.groupText{
+    font-size: 18px;
+}
+.modal-left-col{
+    text-align: center;
+    float: left;
+    padding-right: 100px;
+    padding-bottom: 50px;
+    padding-left: 10px;
+}
+.modal-right-col{
+    padding-left: 25px;
 }

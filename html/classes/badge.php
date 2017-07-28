@@ -151,6 +151,16 @@ class badge
      */
     public function setExpiry($expiry){
         $this->expiresby= $expiry;
+
+    }
+    /**
+     * @param string $timestamp The timestamp to be converted
+     * @return string the newly converted timestamp back to Y-m-d format
+     */
+    public function convertTimestamp($timestamp){
+        date_default_timezone_set('UTC');
+        return date('Y-m-d',$timestamp);
+
     }
 
     /**
