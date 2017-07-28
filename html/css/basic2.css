@@ -34,6 +34,17 @@ body{
     margin-right: 5px;
     font-size: 18px;
 }
+.search-labels:after{
+    content: '*';
+    color: red;
+}
+.filter-labels{
+    padding-right: 50px;
+    font-weight: bold;
+    float: left;
+    margin-right: 5px;
+    font-size: 18px;
+}
 
 .groupChoices{
     width: 500px;

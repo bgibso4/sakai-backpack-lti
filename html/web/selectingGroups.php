@@ -91,24 +91,8 @@
                     </div>
                 </td>
                 <td width="78%">
-                    <script>
-                        function checkForm()    {
 
-                            var condition = true;
-                            if('<?php echo $_GET['groupChoice']?>'===""){
-                                alert("Please select a group");
-                                condition = false;
-                            }
-                            else if ('<?php echo $_GET['groupChoice']?>'==="Choose Here"){
-                                alert("Please select a group");
-                                condition = false;
-                            }
-                            if(condition){ condition =  confirm('Do you want to submit the form?'); }
-
-                            return condition;
-                        }
-                    </script>
-                    <form action="displayingBadges.php" method="get" id="group" onsubmit="return checkForm()">
+                    <form action="displayingBadges.php" method="get" id="group" >
                         <div class="search-Criteria">
                             <table>
                                 <tr class="form-group">
@@ -124,9 +108,8 @@
                                             <script type="text/javascript">
                                                 var allGroups = <?php echo json_encode($groups)?>;
 
-                                                //var options = '<option class="groupText" selected="selected" disabled="disabled" hidden="hidden">Choose here</option>';
-                                                var options = '';
-
+                                                //var options = '<option class="groupText" selected="selected" disabled="disabled" hidden="hidden"> </option>';
+                                                var options='';
                                                 for(var i = 0; i < allGroups.length; i++) {
                                                     options += '<option class="groupText" value="'+allGroups[i]+'">'+allGroups[i]+'</option>';
                                                 }
@@ -145,7 +128,7 @@
                                 </tr>
                                 <tr class="form-group">
                                     <td>
-                                        <label class="search-labels" for="grid-search-tagFiltered">Tags:</label>
+                                        <label class="filter-labels" for="grid-search-tagFiltered">Tags:</label>
                                     </td>
                                     <td>
                                         <input type="text" name="badgeTag" id="grid-search-tagFiltered"><br>
@@ -155,7 +138,7 @@
                             
                                 
                             <fieldset class="form-group">
-                                <legend class="search-labels">Order:</legend>
+                                <legend class="filter-labels">Order:</legend>
                                 <div class="ordering-options-text">
                                     <label class="radio-inline" for="radio-date">
                                         <input type="radio" id="radio-date" name="order" value="creation">
@@ -196,6 +179,18 @@
 
         
     </body>
+    <script>
+        function checkForm()    {
+
+            var condition = true;
+        else if ('<?php echo $_GET['groupChoice']?>'===" "){
+                alert("Please select a group");
+                condition = false;
+            }
+
+            return condition;
+        }
+    </script>
 
 
 </html>

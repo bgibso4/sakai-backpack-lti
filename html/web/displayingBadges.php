@@ -84,7 +84,7 @@ function sortByName($badgeArray, $type){
             // loop and compare each item in the array to the pivot value, place item in appropriate partition
             for($i = 1; $i < count($badgeArray); $i++)
             {
-                if(ord($badgeArray[$i]->getIssuer()->getName()[0]) < ord($pivot->getIssuer()->getName()[0])){
+                if(ord(strtolower($badgeArray[$i]->getIssuer()->getName()[0])) < ord(strtolower($pivot->getIssuer()->getName()[0]))){
                     $left[] = $badgeArray[$i];
                 }
                 else{
@@ -189,7 +189,7 @@ function sortByTimestamp($badgeArray, $type){
             $imageUrl= $badgeInfo->badges[0]->imageUrl;
 
             $badgeArray= [];
-            $newBadge= new Badge();
+            $newBadge= new badge();
             $newBadge->setName("Ultimate Coder");
             $newBadge->setDescription("Superior being displaying other worldly skills in coding");
             $newBadge->setId("2132312313");
@@ -281,7 +281,7 @@ function sortByTimestamp($badgeArray, $type){
                     </div>
                 </td>
                 <td width="78%">
-                    <form action="displayingBadges.php" method="get" id="group" onsubmit="return checkForm()">
+                    <form action="displayingBadges.php" method="get" id="group">
                         <div class="search-Criteria">
                             <table>
                                 <tr class="form-group">
@@ -297,7 +297,7 @@ function sortByTimestamp($badgeArray, $type){
                                             <script type="text/javascript">
                                                 var allGroups = <?php echo json_encode($groups)?>;
 
-                                                //var options = '<option class="groupText" selected="selected" disabled="disabled" hidden="hidden">Choose here</option>';
+                                                //var options = '<option class="groupText" selected="selected" disabled="disabled" hidden="hidden"> </option>';
                                                 var options = '';
 
                                                 for(var i = 0; i < allGroups.length; i++) {
@@ -316,7 +316,7 @@ function sortByTimestamp($badgeArray, $type){
                                 </tr>
                                 <tr class="form-group">
                                     <td>
-                                        <label class="search-labels" for="grid-search-tagFiltered">Tags:</label>
+                                        <label class="filter-labels" for="grid-search-tagFiltered">Tags:</label>
                                     </td>
                                     <td>
                                         <input type="text" name="badgeTag" id="grid-search-tagFiltered"><br>
@@ -326,7 +326,7 @@ function sortByTimestamp($badgeArray, $type){
 
 
                             <fieldset class="form-group">
-                                <legend class="search-labels">Order:</legend>
+                                <legend class="filter-labels">Order:</legend>
                                 <div class="ordering-options-text">
                                     <label class="radio-inline" for="radio-date">
                                         <input type="radio" id="radio-date" name="order" value="mtime">
@@ -384,7 +384,7 @@ data-expiry='$expiry' data-creation='$created' data-criteria='$criteria' data-is
                                             echo("<img src='$imageLink' width=\"150px\" height=\"150px\">");
                                             echo("<br>");
                                             echo("<div class=\"badgeTitle\" id=\"\">$name</div>");
-                                            echo("<br>");
+                                            echo("<hr>");
                                             echo("<div class=\"badgeIssuerName\">$issuerName</div>");
 
                                             echo("</div>");
@@ -414,16 +414,16 @@ data-expiry='$expiry' data-creation='$created' data-criteria='$criteria' data-is
                                                 </div>
                                                 <div id="modal-right-col" class="modal-right-col">
                                                     <h3 class="detailsTitles">Badge Details</h3>
-                                                    <p id="badgeNameDisplay">Name: </p>
-                                                    <p id="badgeDescriptionDisplay">Details: </p>
+                                                    <p id="badgeNameDisplay"></p>
+                                                    <p id="badgeDescriptionDisplay"></p>
                                                     <p id="badgeCriteriaDisplay">Criteria: <a id="criteriaLink" href=""></a></p>
                                                     <hr>
                                                     <br>
                                                     <h3 class="detailsTitles">Issuer Details</h3>
 
-                                                    <p id="issueNameDisplay">Name: </p>
+                                                    <p id="issueNameDisplay"></p>
                                                     <p id="issueUrlDisplay">URL: <a id="issuerLink" href=""></a></p>
-                                                    <p id="issueEmailDisplay">Email: </p>
+                                                    <p id="issueEmailDisplay"></p>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -475,27 +475,22 @@ data-expiry='$expiry' data-creation='$created' data-criteria='$criteria' data-is
             }
         }
         function showDetails(badge) {
-            //document.getElementById('modal-left-col').innerHTML='';
+
             document.getElementById('modalTitle').innerHTML = badge.getAttribute("data-badgeName");
-//                                var img= new Image();
-//                                img.src= badge.getAttribute('data-badgeImage');
-//                                img.width=200;
-//                                img.height=200;
-//                                document.getElementById('modal-left-col').appendChild(img);
             document.getElementById('badgeImage').src= badge.getAttribute('data-badgeImage');
             document.getElementById('badgeImage').width= 200;
             document.getElementById('badgeImage').height=200;
             document.getElementById('creationLabel').innerHTML= badge.getAttribute('data-creation');
             document.getElementById('expiryLabel').innerHTML= badge.getAttribute('data-expiry');
 
-            document.getElementById('badgeNameDisplay').innerHTML= document.getElementById('badgeNameDisplay').innerHTML + badge.getAttribute('data-badgeName');
-            document.getElementById('badgeDescriptionDisplay').innerHTML= document.getElementById('badgeDescriptionDisplay').innerHTML + badge.getAttribute('data-description');
+            document.getElementById('badgeNameDisplay').innerHTML= "Name: " + badge.getAttribute('data-badgeName');
+            document.getElementById('badgeDescriptionDisplay').innerHTML= "Details: " + badge.getAttribute('data-description');
             document.getElementById('criteriaLink').innerHTML= badge.getAttribute('data-criteria');
             document.getElementById('criteriaLink').href= badge.getAttribute('data-criteria');
-            document.getElementById('issueNameDisplay').innerHTML= document.getElementById('issueNameDisplay').innerHTML + badge.getAttribute('data-issuerName');
+            document.getElementById('issueNameDisplay').innerHTML= "Name: " + badge.getAttribute('data-issuerName');
             document.getElementById('issuerLink').innerHTML= badge.getAttribute('data-issuerUrl');
             document.getElementById('issuerLink').href= badge.getAttribute('data-issuerUrl');
-            document.getElementById('issueEmailDisplay').innerHTML= document.getElementById('issueEmailDisplay').innerHTML + badge.getAttribute('data-issuerEmail');
+            document.getElementById('issueEmailDisplay').innerHTML= "Email: " + badge.getAttribute('data-issuerEmail');
             modal.style.display = "block";
         }
     </script>
