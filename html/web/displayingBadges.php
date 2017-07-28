@@ -46,6 +46,109 @@ function initializingBadge($instance){
 
     return $newBadge;
 }
+
+function sortByName($badgeArray, $type){
+    // find array size
+    $length = count($badgeArray);
+
+    // base case test, if array of length 0 then just return array to caller
+    if($length <= 1){
+        return $badgeArray;
+    }
+    else{
+        if($type === "badgeName"){
+            // select an item to act as our pivot point, since list is unsorted first position is easiest
+            $pivot = $badgeArray[0];
+
+            // declare our two arrays to act as partitions
+            $left = $right = array();
+
+            // loop and compare each item in the array to the pivot value, place item in appropriate partition
+            for($i = 1; $i < count($badgeArray); $i++)
+            {
+                if(ord(strtolower($badgeArray[$i]->getName()[0])) < ord(strtolower($pivot->getName()[0]))){
+                    $left[] = $badgeArray[$i];
+                }
+                else{
+                    $right[] = $badgeArray[$i];
+                }
+            }
+        }
+        else{
+            // select an item to act as our pivot point, since list is unsorted first position is easiest
+            $pivot = $badgeArray[0];
+
+            // declare our two arrays to act as partitions
+            $left = $right = array();
+
+            // loop and compare each item in the array to the pivot value, place item in appropriate partition
+            for($i = 1; $i < count($badgeArray); $i++)
+            {
+                if(ord($badgeArray[$i]->getIssuer()->getName()[0]) < ord($pivot->getIssuer()->getName()[0])){
+                    $left[] = $badgeArray[$i];
+                }
+                else{
+                    $right[] = $badgeArray[$i];
+                }
+            }
+        }
+
+        // use recursion to now sort the left and right lists
+        return array_merge(sortByName($left, $type), array($pivot), sortByName($right, $type));
+    }
+}
+
+function sortByTimestamp($badgeArray, $type){
+    // find array size
+    $length = count($badgeArray);
+
+    // base case test, if array of length 0 then just return array to caller
+    if($length <= 1){
+        return $badgeArray;
+    }
+    else{
+        if($type === "creation"){
+            // select an item to act as our pivot point, since list is unsorted first position is easiest
+            $pivot = $badgeArray[0];
+
+            // declare our two arrays to act as partitions
+            $left = $right = array();
+
+            // loop and compare each item in the array to the pivot value, place item in appropriate partition
+            for($i = 1; $i < count($badgeArray); $i++)
+            {
+                if($badgeArray[$i]->getCreationTime() < $pivot->getCreationTime()){
+                    $left[] = $badgeArray[$i];
+                }
+                else{
+                    $right[] = $badgeArray[$i];
+                }
+            }
+        }
+        else{
+            // select an item to act as our pivot point, since list is unsorted first position is easiest
+            $pivot = $badgeArray[0];
+
+            // declare our two arrays to act as partitions
+            $left = $right = array();
+
+            // loop and compare each item in the array to the pivot value, place item in appropriate partition
+            for($i = 1; $i < count($badgeArray); $i++)
+            {
+                if($badgeArray[$i]->getExpiry() < $pivot->getExpiry()){
+                    $left[] = $badgeArray[$i];
+                }
+                else{
+                    $right[] = $badgeArray[$i];
+                }
+            }
+        }
+
+        // use recursion to now sort the left and right lists
+        return array_merge(sortByName($left, $type), array($pivot), sortByName($right, $type));
+    }
+}
+
 ?>
 <html>
     <head>
@@ -86,20 +189,51 @@ function initializingBadge($instance){
             $imageUrl= $badgeInfo->badges[0]->imageUrl;
 
             $badgeArray= [];
+            $newBadge= new Badge();
+            $newBadge->setName("Ultimate Coder");
+            $newBadge->setDescription("Superior being displaying other worldly skills in coding");
+            $newBadge->setId("2132312313");
+            $newBadge->setExpiry(time());
+            $newBadge->setCreationTime(time());
+            $newIssuer= new obf_issuer("God","god@gmail.com", "http://www.google.ca");
+            $newBadge->setIssuer($newIssuer);
+            $newBadge->setImage("https://pbs.twimg.com/profile_images/869496879880568832/peABezDn_400x400.jpg");
+            $newBadge->setCriteriaUrl('https://openbadgefactory.com/v1/badge/_/OTNL2EaFL1a3S/criteria.html?v=2.0&event=OTNLQ5aFL1a3X');
+            $newBadge->setTags(['Ben']);
+
+
             for($i=0; $i<$numBadges; $i++){
                 $badgeArray[$i]= initializingBadge($badgeInfo->badges[$i]);
             }
+            array_push($badgeArray, $newBadge);
 
             //to sort the badges if the option gets provided (time restriction maybe) use a sorting algorithm such as quick sort??
             $tempArray= [];
-            if(isset($_GET['badgeTags'])){
-                //foreach($_GET['badgeTags'])
+            if(isset($_GET['badgeTag']) && !empty($_GET['badgeTag'])){
                 foreach($badgeArray as $badge){
-                    if(in_array('',$badge->getTags())){
+                    if(in_array($_GET['badgeTag'],$badge->getTags())){
                         array_push($tempArray, $badge);
                     }
                 }
+                $badgeArray= $tempArray;
             }
+            if(isset($_GET['order']) && !empty($_GET['order'])){
+                if($_GET['order']==="creation"){
+                    $tempArray= sortByTimestamp($badgeArray, "creation");
+                }
+                else if ($_GET['order']==="name"){
+                    $tempArray= sortByName($badgeArray, "badgeName");
+                }
+                else if ($_GET['order']==="issuer_name"){
+                    $tempArray= sortByName($badgeArray, "issuerName");
+                }
+                else{
+                    $tempArray= sortByTimestamp($badgeArray, "expiry");
+                }
+                $badgeArray=$tempArray;
+            }
+
+
         }
         else{
             $recData= json_decode($userRetrevial->response);
@@ -185,7 +319,7 @@ function initializingBadge($instance){
                                         <label class="search-labels" for="grid-search-tagFiltered">Tags:</label>
                                     </td>
                                     <td>
-                                        <input type="text" name="badgeTags" id="grid-search-tagFiltered"><br>
+                                        <input type="text" name="badgeTag" id="grid-search-tagFiltered"><br>
                                     </td>
                                 </tr>
                             </table>
@@ -226,30 +360,37 @@ function initializingBadge($instance){
                                     <div id="allBadges"></div>
 
                                     <?php
-                                    foreach($badgeArray as $inst){
-                                        $name= $inst->getName();
-                                        $imageLink= $inst->getImage();
-                                        $description= $inst->getDescription();
-                                        $expiry= $inst->convertTimestamp($inst->getExpiry());
-                                        $created= $inst->convertTimestamp($inst->getCreationTime());
-                                        $criteria= $inst->getCriteriaUrl();
-                                        $tags= $inst->getTags();
+                                    if(sizeof($badgeArray)===0){
+                                        echo("<br>");
+                                        echo("<h3 class='noResults'>There are no badges matching that search criteria</h3>");
+                                    }
+                                    else{
+                                        foreach($badgeArray as $inst){
+                                            $name= $inst->getName();
+                                            $imageLink= $inst->getImage();
+                                            $description= $inst->getDescription();
+                                            $expiry= $inst->convertTimestamp($inst->getExpiry());
+                                            $created= $inst->convertTimestamp($inst->getCreationTime());
+                                            $criteria= $inst->getCriteriaUrl();
+                                            $tags= $inst->getTags();
 
-                                        $issuerName=$inst->getIssuer()->getName();
-                                        $issuerEmail=$inst->getIssuer()->getEmail();
-                                        $issuerUrl= $inst->getIssuer()->getUrl();
+                                            $issuerName=$inst->getIssuer()->getName();
+                                            $issuerEmail=$inst->getIssuer()->getEmail();
+                                            $issuerUrl= $inst->getIssuer()->getUrl();
 
-                                        echo("<div role=\"button\" onclick=\"showDetails(this)\" class=\"badgeButton\" data-badgeName='$name' data-issuerName='$issuerName' data-badgeImage='$imageLink' data-description='$description'
+                                            echo("<div role=\"button\" onclick=\"showDetails(this)\" class=\"badgeButton\" data-badgeName='$name' data-issuerName='$issuerName' data-badgeImage='$imageLink' data-description='$description'
 data-expiry='$expiry' data-creation='$created' data-criteria='$criteria' data-issuerEmail='$issuerEmail' data-issuerUrl='$issuerUrl'>");
 
-                                        echo("<img src='$imageLink' width=\"150px\" height=\"150px\">");
-                                        echo("<br>");
-                                        echo("<div class=\"badgeTitle\" id=\"\">$name</div>");
-                                        echo("<br>");
-                                        echo("<div class=\"badgeIssuerName\">$issuerName</div>");
+                                            echo("<img src='$imageLink' width=\"150px\" height=\"150px\">");
+                                            echo("<br>");
+                                            echo("<div class=\"badgeTitle\" id=\"\">$name</div>");
+                                            echo("<br>");
+                                            echo("<div class=\"badgeIssuerName\">$issuerName</div>");
 
-                                        echo("</div>");
+                                            echo("</div>");
+                                        }
                                     }
+
 
 
                                     ?>

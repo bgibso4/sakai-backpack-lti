@@ -5,7 +5,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/ims-lti/IMSGlobal" afterPath="$PROJECT_DIR$/html/ims-lti/IMSGlobal" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/classes/badge.php" afterPath="$PROJECT_DIR$/html/classes/badge.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/css/basic.css" afterPath="$PROJECT_DIR$/html/css/basic.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/css/basic2.css" afterPath="$PROJECT_DIR$/html/css/basic2.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/web/displayingBadges.php" afterPath="$PROJECT_DIR$/html/web/displayingBadges.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/web/selectingGroups.php" afterPath="$PROJECT_DIR$/html/web/selectingGroups.php" />
     </list>
@@ -22,8 +22,8 @@
       <file leaf-file-name="selectingGroups.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/web/selectingGroups.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="33" column="56" lean-forward="true" selection-start-line="33" selection-start-column="56" selection-end-line="33" selection-end-column="56" />
+            <state relative-caret-position="2058">
+              <caret line="162" column="56" lean-forward="false" selection-start-line="162" selection-start-column="56" selection-end-line="162" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -32,8 +32,8 @@
       <file leaf-file-name="basic2.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/css/basic2.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="196" column="0" lean-forward="true" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
+            <state relative-caret-position="425">
+              <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -42,10 +42,10 @@
       <file leaf-file-name="displayingBadges.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/web/displayingBadges.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="98" column="55" lean-forward="false" selection-start-line="98" selection-start-column="55" selection-end-line="98" selection-end-column="55" />
+            <state relative-caret-position="4675">
+              <caret line="275" column="30" lean-forward="true" selection-start-line="275" selection-start-column="30" selection-end-line="275" selection-end-column="30" />
               <folding>
-                <marker date="1501263596398" expanded="true" signature="10932:11065" ph="..." />
+                <marker date="1501272329373" expanded="true" signature="16487:16620" ph="..." />
               </folding>
             </state>
           </provider>
@@ -64,8 +64,8 @@
       <file leaf-file-name="badge.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/classes/badge.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-288">
-              <caret line="161" column="26" lean-forward="false" selection-start-line="161" selection-start-column="26" selection-end-line="161" selection-end-column="26" />
+            <state relative-caret-position="34">
+              <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -95,9 +95,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/html/css/basic.css" />
-        <option value="$PROJECT_DIR$/html/classes/badge.php" />
-        <option value="$PROJECT_DIR$/html/web/selectingGroups.php" />
         <option value="$PROJECT_DIR$/html/css/basic2.css" />
+        <option value="$PROJECT_DIR$/html/web/selectingGroups.php" />
+        <option value="$PROJECT_DIR$/html/classes/badge.php" />
         <option value="$PROJECT_DIR$/html/web/displayingBadges.php" />
       </list>
     </option>
@@ -141,6 +141,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -213,7 +214,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -345,15 +345,20 @@
       <workItem from="1501258668526" duration="467000" />
       <workItem from="1501259171093" duration="587000" />
       <workItem from="1501259817535" duration="1677000" />
-      <workItem from="1501262575277" duration="839000" />
+      <workItem from="1501262575277" duration="1419000" />
+      <workItem from="1501264209663" duration="600000" />
+      <workItem from="1501264881871" duration="2034000" />
+      <workItem from="1501267149572" duration="2357000" />
+      <workItem from="1501270073985" duration="1457000" />
+      <workItem from="1501271683123" duration="885000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47767000" />
+    <option name="totallyTimeSpent" value="55680000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.101875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -384,7 +389,19 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="17" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/html/web/displayingBadges.php</url>
+          <line>111</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/html/web/displayingBadges.php</url>
+          <line>68</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="26" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -394,7 +411,7 @@
         <state relative-caret-position="3706">
           <caret line="218" column="54" lean-forward="true" selection-start-line="218" selection-start-column="54" selection-end-line="218" selection-end-column="54" />
           <folding>
-            <marker date="1501263596398" expanded="true" signature="10932:11065" ph="..." />
+            <marker date="1501272329373" expanded="true" signature="16487:16620" ph="..." />
           </folding>
         </state>
       </provider>
@@ -420,7 +437,7 @@
         <state relative-caret-position="493">
           <caret line="29" column="37" lean-forward="true" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
           <folding>
-            <marker date="1501263596398" expanded="true" signature="10932:11065" ph="..." />
+            <marker date="1501272329373" expanded="true" signature="16487:16620" ph="..." />
           </folding>
         </state>
       </provider>
@@ -486,7 +503,7 @@
         <state relative-caret-position="340">
           <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
           <folding>
-            <marker date="1501263596398" expanded="true" signature="10932:11065" ph="..." />
+            <marker date="1501272329373" expanded="true" signature="16487:16620" ph="..." />
           </folding>
         </state>
       </provider>
@@ -504,7 +521,7 @@
         <state relative-caret-position="3706">
           <caret line="218" column="55" lean-forward="false" selection-start-line="218" selection-start-column="55" selection-end-line="218" selection-end-column="55" />
           <folding>
-            <marker date="1501263596398" expanded="true" signature="10932:11065" ph="..." />
+            <marker date="1501272329373" expanded="true" signature="16487:16620" ph="..." />
           </folding>
         </state>
       </provider>
@@ -570,7 +587,7 @@
         <state relative-caret-position="3706">
           <caret line="218" column="55" lean-forward="true" selection-start-line="218" selection-start-column="55" selection-end-line="218" selection-end-column="55" />
           <folding>
-            <marker date="1501263596398" expanded="true" signature="10932:11065" ph="..." />
+            <marker date="1501272329373" expanded="true" signature="16487:16620" ph="..." />
           </folding>
         </state>
       </provider>
@@ -612,7 +629,7 @@
         <state relative-caret-position="1377">
           <caret line="81" column="0" lean-forward="true" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
           <folding>
-            <marker date="1501263596398" expanded="true" signature="10932:11065" ph="..." />
+            <marker date="1501272329373" expanded="true" signature="16487:16620" ph="..." />
           </folding>
         </state>
       </provider>
@@ -654,7 +671,7 @@
         <state relative-caret-position="2346">
           <caret line="138" column="0" lean-forward="true" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
           <folding>
-            <marker date="1501263596398" expanded="true" signature="10932:11065" ph="..." />
+            <marker date="1501272329373" expanded="true" signature="16487:16620" ph="..." />
           </folding>
         </state>
       </provider>
@@ -696,7 +713,7 @@
         <state relative-caret-position="3111">
           <caret line="183" column="53" lean-forward="true" selection-start-line="183" selection-start-column="53" selection-end-line="183" selection-end-column="53" />
           <folding>
-            <marker date="1501263596398" expanded="true" signature="10932:11065" ph="..." />
+            <marker date="1501272329373" expanded="true" signature="16487:16620" ph="..." />
           </folding>
         </state>
       </provider>
@@ -738,7 +755,7 @@
         <state relative-caret-position="2380">
           <caret line="140" column="55" lean-forward="true" selection-start-line="140" selection-start-column="55" selection-end-line="140" selection-end-column="55" />
           <folding>
-            <marker date="1501263596398" expanded="true" signature="10932:11065" ph="..." />
+            <marker date="1501272329373" expanded="true" signature="16487:16620" ph="..." />
           </folding>
         </state>
       </provider>
@@ -781,36 +798,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/web/selectingGroups.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="33" column="56" lean-forward="true" selection-start-line="33" selection-start-column="56" selection-end-line="33" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/css/basic2.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="196" column="0" lean-forward="true" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
+        <state relative-caret-position="425">
+          <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/classes/badge.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-288">
-          <caret line="161" column="26" lean-forward="false" selection-start-line="161" selection-start-column="26" selection-end-line="161" selection-end-column="26" />
+        <state relative-caret-position="34">
+          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/web/selectingGroups.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2058">
+          <caret line="162" column="56" lean-forward="false" selection-start-line="162" selection-start-column="56" selection-end-line="162" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/web/displayingBadges.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="98" column="55" lean-forward="false" selection-start-line="98" selection-start-column="55" selection-end-line="98" selection-end-column="55" />
+        <state relative-caret-position="4675">
+          <caret line="275" column="30" lean-forward="true" selection-start-line="275" selection-start-column="30" selection-end-line="275" selection-end-column="30" />
           <folding>
-            <marker date="1501263596398" expanded="true" signature="10932:11065" ph="..." />
+            <marker date="1501272329373" expanded="true" signature="16487:16620" ph="..." />
           </folding>
         </state>
       </provider>

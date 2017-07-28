@@ -28,10 +28,11 @@ body{
     padding-left: 55px;
 }
 .search-labels{
-    padding-right: 50;
+    padding-right: 50px;
     font-weight: bold;
     float: left;
     margin-right: 5px;
+    font-size: 18px;
 }
 
 .groupChoices{

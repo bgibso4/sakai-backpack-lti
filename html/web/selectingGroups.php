@@ -148,7 +148,7 @@
                                         <label class="search-labels" for="grid-search-tagFiltered">Tags:</label>
                                     </td>
                                     <td>
-                                        <input type="text" name="badgeTags" id="grid-search-tagFiltered"><br>
+                                        <input type="text" name="badgeTag" id="grid-search-tagFiltered"><br>
                                     </td>
                                 </tr>
                             </table>
@@ -158,7 +158,7 @@
                                 <legend class="search-labels">Order:</legend>
                                 <div class="ordering-options-text">
                                     <label class="radio-inline" for="radio-date">
-                                        <input type="radio" id="radio-date" name="order" value="mtime">
+                                        <input type="radio" id="radio-date" name="order" value="creation">
 
                                         by creation date
                                     </label>

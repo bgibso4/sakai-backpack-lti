@@ -183,10 +183,7 @@ class badge
      * @return string[] Returns the tags of the badge
      */
     public function getTags(){
-        if($this->tags != null){
-            return $this->tags;
-        }
-        throw new InvalidArgumentException();
+        return $this->tags;
     }
     /**
      * @param string[] $tags Tags of badge
