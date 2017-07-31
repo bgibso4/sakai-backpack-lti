@@ -19,6 +19,7 @@
             }
         }
         //converting email to userID to find badges
+        //$sentEmail= $_POST['lis_person_contact_email_primary'];
         $email="gibby.b1212@gmail.com";
         $userInfo= array("email"=>"$email");
 
@@ -52,7 +53,7 @@
             
             <nav class="navbar">
                 <div class="logo">
-                    <img src="../images/western-logo.gif"  width="250px" height="50px">
+                    <img src="../images/western-logo.gif"  width="225px" height="50px">
                 </div>
                 <div class="nav-list">
                     <br>
@@ -140,23 +141,23 @@
                             <fieldset class="form-group">
                                 <legend class="filter-labels">Order:</legend>
                                 <div class="ordering-options-text">
-                                    <label class="radio-inline" for="radio-date">
-                                        <input type="radio" id="radio-date" name="order" value="creation">
-
-                                        by creation date
-                                    </label>
                                     <label class="radio-inline" for="radio-name">
-                                        <input type="radio" id="radio-name" name="order" value="name">
+                                        <input type="radio" id="radio-name" name="order" value="name" class="radio">
 
                                         by name
                                     </label>
                                     <label class="radio-inline" for="radio-issuer">
-                                        <input type="radio" id="radio-issuer" name="order" value="issuer_name">
+                                        <input type="radio" id="radio-issuer" name="order" value="issuer_name" class="radio">
 
                                         by issuer name
                                     </label>
+                                    <label class="radio-inline" for="radio-date">
+                                        <input type="radio" id="radio-date" name="order" value="creation" class="radio">
+
+                                        by creation date
+                                    </label>
                                     <label class="radio-inline" for="radio-expiration">
-                                        <input type="radio" id="radio-expiration" name="order" value="expires_on">
+                                        <input type="radio" id="radio-expiration" name="order" value="expires_on" class="radio">
 
                                         by expiration date
                                     </label>
@@ -165,7 +166,7 @@
 
 
                             <br>
-                            <input type="submit" value="Confirm">
+                            <input type="submit" value="Confirm" class="submitButton">
                         </div>
 
                     </form>

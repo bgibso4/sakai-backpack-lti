@@ -245,7 +245,7 @@ function sortByTimestamp($badgeArray, $type){
 
             <nav class="navbar">
                 <div class="logo">
-                    <img src="../images/western-logo.gif"  width="250px" height="50px">
+                    <img src="../images/western-logo.gif"  width="225px" height="50px">
                 </div>
                 <div class="nav-list">
                     <br>
@@ -328,30 +328,30 @@ function sortByTimestamp($badgeArray, $type){
                             <fieldset class="form-group">
                                 <legend class="filter-labels">Order:</legend>
                                 <div class="ordering-options-text">
-                                    <label class="radio-inline" for="radio-date">
-                                        <input type="radio" id="radio-date" name="order" value="mtime">
-
-                                        by creation date
-                                    </label>
                                     <label class="radio-inline" for="radio-name">
-                                        <input type="radio" id="radio-name" name="order" value="name">
+                                        <input type="radio" id="radio-name" name="order" value="name" class="radio">
 
                                         by name
                                     </label>
                                     <label class="radio-inline" for="radio-issuer">
-                                        <input type="radio" id="radio-issuer" name="order" value="issuer_name">
+                                        <input type="radio" id="radio-issuer" name="order" value="issuer_name" class="radio">
 
                                         by issuer name
                                     </label>
+                                    <label class="radio-inline" for="radio-date">
+                                        <input type="radio" id="radio-date" name="order" value="mtime" class="radio">
+
+                                        by creation date
+                                    </label>
                                     <label class="radio-inline" for="radio-expiration">
-                                        <input type="radio" id="radio-expiration" name="order" value="expires_on">
+                                        <input type="radio" id="radio-expiration" name="order" value="expires_on" class="radio">
 
                                         by expiration date
                                     </label>
                                 </div>
                             </fieldset>
                         </div>
-                        <input type="submit" value="Filter">
+                        <input type="submit" value="Filter" class="submitButton">
                     </form>
                     <div class="badgeDisplayGrid">
                         <table>
@@ -413,17 +413,18 @@ data-expiry='$expiry' data-creation='$created' data-criteria='$criteria' data-is
                                                     <h4 id="expiryLabel"></h4>
                                                 </div>
                                                 <div id="modal-right-col" class="modal-right-col">
+                                                    <h3 class="detailsTitles">Issuer Details</h3>
+                                                    <p id="issueNameDisplay"></p>
+                                                    <p id="issueUrlDisplay">URL: <a id="issuerLink" href=""></a></p>
+                                                    <p id="issueEmailDisplay"></p>
+                                                    <hr>
+                                                    <br>
                                                     <h3 class="detailsTitles">Badge Details</h3>
                                                     <p id="badgeNameDisplay"></p>
                                                     <p id="badgeDescriptionDisplay"></p>
                                                     <p id="badgeCriteriaDisplay">Criteria: <a id="criteriaLink" href=""></a></p>
-                                                    <hr>
-                                                    <br>
-                                                    <h3 class="detailsTitles">Issuer Details</h3>
 
-                                                    <p id="issueNameDisplay"></p>
-                                                    <p id="issueUrlDisplay">URL: <a id="issuerLink" href=""></a></p>
-                                                    <p id="issueEmailDisplay"></p>
+
                                                 </div>
                                             </div>
                                             <div class="modal-footer">

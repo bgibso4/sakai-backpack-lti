@@ -17,7 +17,7 @@ $username = "root";
 $password = "root";
 $dbname= 'mysql';
 $port= '3307';
-$dtPrefix= 'OBF';
+$dtPrefix= 'obf';
 
 
 ////Used to create the MySQL server
@@ -156,11 +156,14 @@ foreach ($lmsdata as $k => $val ) {
 }
 
 
-//$db = new PDO("mysql:host=localhost:3307", $username, $password);  // Database constants not defined here
-$db= NULL;
-$data_connector = ToolProvider\DataConnector\DataConnector::getDataConnector($dtPrefix, $db);
+$db = new PDO("mysql:dbname=obf;host=localhost;port=3307", 'ben', '');  // Database constants not defined here
+//$db= mysqli_connect('localhost','gibby12','Hershey12!', 'sakai', '3306');
+$error= mysqli_connect_error();
+//$db= mysql_connect('localhost', 'root', 'root');
+//$db=NULL;
+$data_connector = ToolProvider\DataConnector\DataConnector_mysql::getDataConnector($dtPrefix, $db);
 $tool = new ImsToolProvider($data_connector);
-//xdebug_break();
+
 $formSub= new \IMSGlobal\LTI\HTTPMessage('http://www.google.ca', 'GET');
 $formSub->send();
 $tool->setParameterConstraint('user_id');
