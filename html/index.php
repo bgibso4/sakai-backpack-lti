@@ -159,10 +159,10 @@ redirect($ok, $userRetrevial->ok);
             <div class="navBar">
                 <ul class="navbar-list">
                     <li>
-                        <a href="HomePage.html">ABOUT</a>
+                        <a href="web/about.html">ABOUT</a>
                     </li>
                     <li>
-                        <a href="passport.html">HELP</a>
+                        <a href="web/help.html">HELP</a>
                     </li>
                     <li>
                     </li>

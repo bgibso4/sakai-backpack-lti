@@ -161,8 +161,8 @@ function sortByTimestamp($badgeArray, $type){
     </head>
     <?php
         //converting email to userID to find badges
-        //$email= $_SESSION['email'];
-        $email="gibby.b1212@gmail.com";
+        $email= $_SESSION['email'];
+        //$email="gibby.b1212@gmail.com";
         $userInfo= array("email"=>"$email");
 
         $userRetrevial= new \IMSGlobal\LTI\HTTPMessage("https://backpack.openbadges.org/displayer/convert/email", "POST", $userInfo);
@@ -201,7 +201,7 @@ function sortByTimestamp($badgeArray, $type){
             $newBadge->setIssuer($newIssuer);
             $newBadge->setImage("https://pbs.twimg.com/profile_images/869496879880568832/peABezDn_400x400.jpg");
             $newBadge->setCriteriaUrl('https://openbadgefactory.com/v1/badge/_/OTNL2EaFL1a3S/criteria.html?v=2.0&event=OTNLQ5aFL1a3X');
-            $newBadge->setTags(['Ben']);
+            $newBadge->setTags(['Ben', 'Gibson']);
 
 
             for($i=0; $i<$numBadges; $i++){
@@ -219,7 +219,7 @@ function sortByTimestamp($badgeArray, $type){
             $newBadge->setIssuer($newIssuer);
             $newBadge->setImage("https://pbs.twimg.com/profile_images/869496879880568832/peABezDn_400x400.jpg");
             $newBadge->setCriteriaUrl('https://openbadgefactory.com/v1/badge/_/OTNL2EaFL1a3S/criteria.html?v=2.0&event=OTNLQ5aFL1a3X');
-            $newBadge->setTags(['Ben']);
+            $newBadge->setTags(['Ben', 'Gibson']);
             array_push($badgeArray, $newBadge);
 
 
@@ -233,7 +233,7 @@ function sortByTimestamp($badgeArray, $type){
             $newBadge->setIssuer($newIssuer);
             $newBadge->setImage("https://pbs.twimg.com/profile_images/869496879880568832/peABezDn_400x400.jpg");
             $newBadge->setCriteriaUrl('https://openbadgefactory.com/v1/badge/_/OTNL2EaFL1a3S/criteria.html?v=2.0&event=OTNLQ5aFL1a3X');
-            $newBadge->setTags(['Ben']);
+            $newBadge->setTags(['Ben', 'Gibson']);
             array_push($badgeArray, $newBadge);
 
 
@@ -247,7 +247,7 @@ function sortByTimestamp($badgeArray, $type){
             $newBadge->setIssuer($newIssuer);
             $newBadge->setImage("https://pbs.twimg.com/profile_images/869496879880568832/peABezDn_400x400.jpg");
             $newBadge->setCriteriaUrl('https://openbadgefactory.com/v1/badge/_/OTNL2EaFL1a3S/criteria.html?v=2.0&event=OTNLQ5aFL1a3X');
-            $newBadge->setTags(['Ben']);
+            $newBadge->setTags(['Ben', 'Gibson']);
             array_push($badgeArray, $newBadge);
 
 
@@ -261,7 +261,7 @@ function sortByTimestamp($badgeArray, $type){
             $newBadge->setIssuer($newIssuer);
             $newBadge->setImage("https://pbs.twimg.com/profile_images/869496879880568832/peABezDn_400x400.jpg");
             $newBadge->setCriteriaUrl('https://openbadgefactory.com/v1/badge/_/OTNL2EaFL1a3S/criteria.html?v=2.0&event=OTNLQ5aFL1a3X');
-            $newBadge->setTags(['Ben']);
+            $newBadge->setTags(['Ben', 'Gibson']);
             array_push($badgeArray, $newBadge);
 
 
@@ -305,7 +305,7 @@ function sortByTimestamp($badgeArray, $type){
 
             <nav class="navbar">
                 <div class="logo">
-                    <img src="../images/western-logo.gif"  width="225px" height="50px">
+                    <img src="../images/westernBadgeLogo.png"  width="225px" height="50px">
                 </div>
                 <div class="nav-list">
                     <br>
@@ -314,10 +314,10 @@ function sortByTimestamp($badgeArray, $type){
                             <a href="selectingGroups.php"><b>BADGES</b></a>
                         </li>
                         <li>
-                            <a href="issuingPage.html">ABOUT</a>
+                            <a href="about.html">ABOUT</a>
                         </li>
                         <li>
-                            <a href="profile.html">HELP</a>
+                            <a href="help.html">HELP</a>
                         </li>
                     </ul>
                 </div>
@@ -334,8 +334,8 @@ function sortByTimestamp($badgeArray, $type){
                     <div class="side-menu">
                         <ul>
                             <li><a href="selectingGroups.php"><b>MY BADGES</b></a></li>
-                            <li><a href="selectingGroups.php"><b>ABOUT BADGES</b></a></li>
-                            <li><a href="selectingGroups.php"><b>HELP</b></a></li>
+                            <li><a href="about.html"><b>ABOUT BADGES</b></a></li>
+                            <li><a href="help.html"><b>HELP</b></a></li>
                         </ul>
                     </div>
                 </td>
@@ -431,14 +431,14 @@ function sortByTimestamp($badgeArray, $type){
                                             $expiry= $inst->convertTimestamp($inst->getExpiry());
                                             $created= $inst->convertTimestamp($inst->getCreationTime());
                                             $criteria= $inst->getCriteriaUrl();
-                                            $tags= $inst->getTags();
+                                            $tags= $inst->tagsToString();
 
                                             $issuerName=$inst->getIssuer()->getName();
                                             $issuerEmail=$inst->getIssuer()->getEmail();
                                             $issuerUrl= $inst->getIssuer()->getUrl();
 
                                             echo("<div role=\"button\" onclick=\"showDetails(this)\" class=\"badgeButton\" data-badgeName='$name' data-issuerName='$issuerName' data-badgeImage='$imageLink' data-description='$description'
-data-expiry='$expiry' data-creation='$created' data-criteria='$criteria' data-issuerEmail='$issuerEmail' data-issuerUrl='$issuerUrl'>");
+data-expiry='$expiry' data-creation='$created' data-criteria='$criteria' data-issuerEmail='$issuerEmail' data-issuerUrl='$issuerUrl' data-tags='$tags'>");
 
                                             echo("<img src='$imageLink' width=\"150px\" height=\"150px\">");
                                             echo("<br>");
@@ -481,6 +481,7 @@ data-expiry='$expiry' data-creation='$created' data-criteria='$criteria' data-is
                                                     <h3 class="detailsTitles">Badge Details</h3>
                                                     <p id="badgeNameDisplay"></p>
                                                     <p id="badgeDescriptionDisplay"></p>
+                                                    <p id="badgeTags"></p>
                                                     <p id="badgeCriteriaDisplay">Criteria: <a id="criteriaLink" href=""></a></p>
 
 
@@ -547,6 +548,7 @@ data-expiry='$expiry' data-creation='$created' data-criteria='$criteria' data-is
 
             document.getElementById('badgeNameDisplay').innerHTML= "Name: " + badge.getAttribute('data-badgeName');
             document.getElementById('badgeDescriptionDisplay').innerHTML= "Details: " + badge.getAttribute('data-description');
+            document.getElementById('badgeTags').innerHTML= "Tags: "+badge.getAttribute('data-tags');
             document.getElementById('criteriaLink').innerHTML= badge.getAttribute('data-criteria');
             document.getElementById('criteriaLink').href= badge.getAttribute('data-criteria');
             document.getElementById('issueNameDisplay').innerHTML= "Name: " + badge.getAttribute('data-issuerName');

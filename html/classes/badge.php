@@ -44,18 +44,6 @@ class badge
      * @var string The URL of the badge criteria.
      */
     private $criteriaurl = '';
-//    /**
-//     * @var string The HTML-markup of badge criteria.
-//     */
-//    private $criteriahtml = '';
-//    /**
-//     * @var string The CSS of the badge criteria page.
-//     */
-//    private $criteriacss = '';
-//    /**
-//     * @var string[] The categories of the badge.
-//     */
-//    private $categories = array();
 
     /**
      * @return string returns the name of the badge
@@ -191,6 +179,27 @@ class badge
     public function setTags($tags){
         $this->tags= $tags;
     }
+
+    /**
+     * @return string Returns the converted string array of tags into a single string
+     */
+    public function tagsToString(){
+
+        $newString="";
+        if(sizeof($this->tags)>1){
+            for($i=0; $i<sizeof($this->tags)-1; $i++){
+                $newString= $newString.$this->tags[$i].", ";
+            }
+            $newString= $newString.$this->tags[sizeof($this->tags)-1];
+        }
+        else if (sizeof($this->tags)===1){
+            $newString= $this->tags[0];
+        }
+
+        return $newString;
+
+    }
+
 
     /**
      * @return string returns the url to the criteria of the badge
