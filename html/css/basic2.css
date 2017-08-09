@@ -20,6 +20,9 @@ body{
 .side-menu{
     font-size: 14px;
 }
+.sublinks{
+    padding-left: 20px;
+}
 
 .search-Criteria{
     position: relative;
@@ -74,7 +77,9 @@ a:hover{
 ul{
     list-style-type: none;
 }
-
+li{
+    padding: 20px;
+}
 
 .radio-inline{
     padding-left: 20px;
@@ -103,18 +108,23 @@ input{
 .navbar-list{
     list-style-type: none;
     display: inline;
-    text-align: center;
+
     
 }
 nav li{
     display: inline;
     padding-right: 15px;
+    font-size: 20px;
     
+}
+.nav-list{
+
+    padding-left: 600px
 }
 
 .logo{
     float: left;
-    padding-right: 250px;
+
 }
 
 .badgeButton{
@@ -180,6 +190,7 @@ nav li{
 .modal-footer {
     padding: 2px 16px;
     background-color: #2E3336;
+    text-align: right;
 }
 
 /* Modal Content */
@@ -228,4 +239,20 @@ nav li{
 
 .radio, .radio-inline{
     cursor: pointer;
+}
+
+.page-content{
+    text-align: center;
+}
+
+.content-title{
+    text-align: center;
+}
+.summary{
+    font-size: 18px;
+}
+.help-page-list{
+    list-style-type: square;
+    text-align: center;
+    list-style-position: inside;
 }

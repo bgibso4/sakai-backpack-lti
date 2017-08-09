@@ -5,6 +5,7 @@
  * Date: 7/21/2017
  * Time: 12:57 PM
  */
+session_start();
 function __autoload($className){
     $path= "..\ims-lti"."\\{$className}.php";
     $path= str_replace("\\", "/", $path);
@@ -160,6 +161,7 @@ function sortByTimestamp($badgeArray, $type){
     </head>
     <?php
         //converting email to userID to find badges
+        //$email= $_SESSION['email'];
         $email="gibby.b1212@gmail.com";
         $userInfo= array("email"=>"$email");
 
@@ -207,6 +209,64 @@ function sortByTimestamp($badgeArray, $type){
             }
             array_push($badgeArray, $newBadge);
 
+            $newBadge= new badge();
+            $newBadge->setName("Ultimate Coder");
+            $newBadge->setDescription("Superior being displaying other worldly skills in coding");
+            $newBadge->setId("2132312313");
+            $newBadge->setExpiry(time());
+            $newBadge->setCreationTime(time());
+            $newIssuer= new obf_issuer("God","god@gmail.com", "http://www.google.ca");
+            $newBadge->setIssuer($newIssuer);
+            $newBadge->setImage("https://pbs.twimg.com/profile_images/869496879880568832/peABezDn_400x400.jpg");
+            $newBadge->setCriteriaUrl('https://openbadgefactory.com/v1/badge/_/OTNL2EaFL1a3S/criteria.html?v=2.0&event=OTNLQ5aFL1a3X');
+            $newBadge->setTags(['Ben']);
+            array_push($badgeArray, $newBadge);
+
+
+            $newBadge= new badge();
+            $newBadge->setName("Ultimate Coder");
+            $newBadge->setDescription("Superior being displaying other worldly skills in coding");
+            $newBadge->setId("2132312313");
+            $newBadge->setExpiry(time());
+            $newBadge->setCreationTime(time());
+            $newIssuer= new obf_issuer("God","god@gmail.com", "http://www.google.ca");
+            $newBadge->setIssuer($newIssuer);
+            $newBadge->setImage("https://pbs.twimg.com/profile_images/869496879880568832/peABezDn_400x400.jpg");
+            $newBadge->setCriteriaUrl('https://openbadgefactory.com/v1/badge/_/OTNL2EaFL1a3S/criteria.html?v=2.0&event=OTNLQ5aFL1a3X');
+            $newBadge->setTags(['Ben']);
+            array_push($badgeArray, $newBadge);
+
+
+            $newBadge= new badge();
+            $newBadge->setName("Ultimate Coder");
+            $newBadge->setDescription("Superior being displaying other worldly skills in coding");
+            $newBadge->setId("2132312313");
+            $newBadge->setExpiry(time());
+            $newBadge->setCreationTime(time());
+            $newIssuer= new obf_issuer("God","god@gmail.com", "http://www.google.ca");
+            $newBadge->setIssuer($newIssuer);
+            $newBadge->setImage("https://pbs.twimg.com/profile_images/869496879880568832/peABezDn_400x400.jpg");
+            $newBadge->setCriteriaUrl('https://openbadgefactory.com/v1/badge/_/OTNL2EaFL1a3S/criteria.html?v=2.0&event=OTNLQ5aFL1a3X');
+            $newBadge->setTags(['Ben']);
+            array_push($badgeArray, $newBadge);
+
+
+            $newBadge= new badge();
+            $newBadge->setName("Ultimate Coder");
+            $newBadge->setDescription("Superior being displaying other worldly skills in coding");
+            $newBadge->setId("2132312313");
+            $newBadge->setExpiry(time());
+            $newBadge->setCreationTime(time());
+            $newIssuer= new obf_issuer("God","god@gmail.com", "http://www.google.ca");
+            $newBadge->setIssuer($newIssuer);
+            $newBadge->setImage("https://pbs.twimg.com/profile_images/869496879880568832/peABezDn_400x400.jpg");
+            $newBadge->setCriteriaUrl('https://openbadgefactory.com/v1/badge/_/OTNL2EaFL1a3S/criteria.html?v=2.0&event=OTNLQ5aFL1a3X');
+            $newBadge->setTags(['Ben']);
+            array_push($badgeArray, $newBadge);
+
+
+
+
             //to sort the badges if the option gets provided (time restriction maybe) use a sorting algorithm such as quick sort??
             $tempArray= [];
             if(isset($_GET['badgeTag']) && !empty($_GET['badgeTag'])){
@@ -251,16 +311,13 @@ function sortByTimestamp($badgeArray, $type){
                     <br>
                     <ul class="navbar-list">
                         <li>
-                            <a href="HomePage.html">HOME</a>
+                            <a href="selectingGroups.php"><b>BADGES</b></a>
                         </li>
                         <li>
-                            <a href="profile.html">PROFILE</a>
+                            <a href="issuingPage.html">ABOUT</a>
                         </li>
                         <li>
-                            <a href="passport.html"><b>BADGES</b></a>
-                        </li>
-                        <li>
-                            <a href="issuingPage.html">ISSUE</a>
+                            <a href="profile.html">HELP</a>
                         </li>
                     </ul>
                 </div>
@@ -277,6 +334,8 @@ function sortByTimestamp($badgeArray, $type){
                     <div class="side-menu">
                         <ul>
                             <li><a href="selectingGroups.php"><b>MY BADGES</b></a></li>
+                            <li><a href="selectingGroups.php"><b>ABOUT BADGES</b></a></li>
+                            <li><a href="selectingGroups.php"><b>HELP</b></a></li>
                         </ul>
                     </div>
                 </td>
@@ -428,6 +487,8 @@ data-expiry='$expiry' data-creation='$created' data-criteria='$criteria' data-is
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
+                                                <br>
+                                                <div><a href="https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME" rel="nofollow" target="_blank"><img src="https://download.linkedin.com/desktop/add2profile/buttons/en_US.png " alt="LinkedIn Add to Profile button"></a></div>
                                                 <br>
                                             </div>
                                         </div>

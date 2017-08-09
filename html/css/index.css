@@ -1,10 +1,81 @@
 body{
-    background-color: darkmagenta;
+/*
+    background-image: url(../images/engineering.jpg), url(../images/medical.jpg), url(../images/economics.jpg), url(../images/science.jpg);
+    background-position: top left, top right, bottom left, bottom right;
+    background-repeat: no-repeat;
+    background-size: 50% 50%, 50% 50%,50% 50%,50% 50%;
+*/
+    background-image: url(../images/westernBackground.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%
 }
 
 .logo{
+    display: block;
     color: white;
+    position: relative;
+    align-content: center;
+    text-align: center;
+    vertical-align: middle;
+    
+    
+}
+.oval{
+    shape-outside: ellipse(700px, 280px);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%); 
+    width: 700px;
+    height: 280px;
+    background: white;
+    border-radius: 50%;
+    border: none;
+    
+    
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s;
+}
+.oval:hover{
+    background: #2E3336;
+    cursor: pointer;
 }
 .link{
     color: white;
 }
+.navBar{
+    display: block;
+    float: right;
+    list-style-type: none;
+
+    
+}
+nav li{
+    display: inline;
+    padding-right: 20px;
+    list-style-type: none;
+    color: black;
+    
+}
+.navbar-list{
+    
+    display: inline;
+    text-align: center;
+    color: black;
+    
+}
+a{
+    color: #2E3336;
+    text-decoration: none;
+    font-size: 16;
+    font-family: Arial Black
+    
+}
+a:hover{
+    color: black;
+    font-weight: bold;
+}
+

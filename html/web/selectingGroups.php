@@ -7,6 +7,7 @@
     </head>
     <body>
         <?php
+        session_start();
         function __autoload($className){
             //$className= strtolower($className);
             $path= "..\ims-lti"."\\{$className}.php";
@@ -19,7 +20,7 @@
             }
         }
         //converting email to userID to find badges
-        //$sentEmail= $_POST['lis_person_contact_email_primary'];
+        //$email= $_SESSION['email'];
         $email="gibby.b1212@gmail.com";
         $userInfo= array("email"=>"$email");
 
@@ -53,22 +54,19 @@
             
             <nav class="navbar">
                 <div class="logo">
-                    <img src="../images/western-logo.gif"  width="225px" height="50px">
+                    <img src="../images/westernBadgeLogo.png"  width="200px" height="60px">
                 </div>
                 <div class="nav-list">
                     <br>
                     <ul class="navbar-list">
                         <li>
-                            <a href="HomePage.html">HOME</a>
-                        </li>
-                        <li>
-                            <a href="profile.html">PROFILE</a>
-                        </li>
-                        <li>
                             <a href="selectingGroups.php"><b>BADGES</b></a>
                         </li>
                         <li>
-                            <a href="issuingPage.html">ISSUE</a>
+                            <a href="about.html">ABOUT</a>
+                        </li>
+                        <li>
+                            <a href="help.html">HELP</a>
                         </li>
                     </ul>
                 </div>
@@ -84,10 +82,12 @@
         </div>
         <table width="95%">
             <tr>
-                <td width=12%>
+                <td width=15%>
                     <div class="side-menu">
                         <ul>
                             <li><a href="selectingGroups.php"><b>MY BADGES</b></a></li>
+                            <li><a href="about.html"><b>ABOUT BADGES</b></a></li>
+                            <li><a href="help.html"><b>HELP</b></a></li>
                         </ul>
                     </div>
                 </td>
@@ -184,7 +184,7 @@
         function checkForm()    {
 
             var condition = true;
-        else if ('<?php echo $_GET['groupChoice']?>'===" "){
+            if ('<?php echo $_GET['groupChoice']?>'===" "){
                 alert("Please select a group");
                 condition = false;
             }
