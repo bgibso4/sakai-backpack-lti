@@ -161,8 +161,8 @@ function sortByTimestamp($badgeArray, $type){
     </head>
     <?php
         //converting email to userID to find badges
-        $email= $_SESSION['email'];
-        //$email="gibby.b1212@gmail.com";
+        //$email= $_SESSION['email'];
+        $email="gibby.b1212@gmail.com";
         $userInfo= array("email"=>"$email");
 
         $userRetrevial= new \IMSGlobal\LTI\HTTPMessage("https://backpack.openbadges.org/displayer/convert/email", "POST", $userInfo);
@@ -208,63 +208,6 @@ function sortByTimestamp($badgeArray, $type){
                 $badgeArray[$i]= initializingBadge($badgeInfo->badges[$i]);
             }
             array_push($badgeArray, $newBadge);
-
-            $newBadge= new badge();
-            $newBadge->setName("Ultimate Coder");
-            $newBadge->setDescription("Superior being displaying other worldly skills in coding");
-            $newBadge->setId("2132312313");
-            $newBadge->setExpiry(time());
-            $newBadge->setCreationTime(time());
-            $newIssuer= new obf_issuer("God","god@gmail.com", "http://www.google.ca");
-            $newBadge->setIssuer($newIssuer);
-            $newBadge->setImage("https://pbs.twimg.com/profile_images/869496879880568832/peABezDn_400x400.jpg");
-            $newBadge->setCriteriaUrl('https://openbadgefactory.com/v1/badge/_/OTNL2EaFL1a3S/criteria.html?v=2.0&event=OTNLQ5aFL1a3X');
-            $newBadge->setTags(['Ben', 'Gibson']);
-            array_push($badgeArray, $newBadge);
-
-
-            $newBadge= new badge();
-            $newBadge->setName("Ultimate Coder");
-            $newBadge->setDescription("Superior being displaying other worldly skills in coding");
-            $newBadge->setId("2132312313");
-            $newBadge->setExpiry(time());
-            $newBadge->setCreationTime(time());
-            $newIssuer= new obf_issuer("God","god@gmail.com", "http://www.google.ca");
-            $newBadge->setIssuer($newIssuer);
-            $newBadge->setImage("https://pbs.twimg.com/profile_images/869496879880568832/peABezDn_400x400.jpg");
-            $newBadge->setCriteriaUrl('https://openbadgefactory.com/v1/badge/_/OTNL2EaFL1a3S/criteria.html?v=2.0&event=OTNLQ5aFL1a3X');
-            $newBadge->setTags(['Ben', 'Gibson']);
-            array_push($badgeArray, $newBadge);
-
-
-            $newBadge= new badge();
-            $newBadge->setName("Ultimate Coder");
-            $newBadge->setDescription("Superior being displaying other worldly skills in coding");
-            $newBadge->setId("2132312313");
-            $newBadge->setExpiry(time());
-            $newBadge->setCreationTime(time());
-            $newIssuer= new obf_issuer("God","god@gmail.com", "http://www.google.ca");
-            $newBadge->setIssuer($newIssuer);
-            $newBadge->setImage("https://pbs.twimg.com/profile_images/869496879880568832/peABezDn_400x400.jpg");
-            $newBadge->setCriteriaUrl('https://openbadgefactory.com/v1/badge/_/OTNL2EaFL1a3S/criteria.html?v=2.0&event=OTNLQ5aFL1a3X');
-            $newBadge->setTags(['Ben', 'Gibson']);
-            array_push($badgeArray, $newBadge);
-
-
-            $newBadge= new badge();
-            $newBadge->setName("Ultimate Coder");
-            $newBadge->setDescription("Superior being displaying other worldly skills in coding");
-            $newBadge->setId("2132312313");
-            $newBadge->setExpiry(time());
-            $newBadge->setCreationTime(time());
-            $newIssuer= new obf_issuer("God","god@gmail.com", "http://www.google.ca");
-            $newBadge->setIssuer($newIssuer);
-            $newBadge->setImage("https://pbs.twimg.com/profile_images/869496879880568832/peABezDn_400x400.jpg");
-            $newBadge->setCriteriaUrl('https://openbadgefactory.com/v1/badge/_/OTNL2EaFL1a3S/criteria.html?v=2.0&event=OTNLQ5aFL1a3X');
-            $newBadge->setTags(['Ben', 'Gibson']);
-            array_push($badgeArray, $newBadge);
-
-
 
 
             //to sort the badges if the option gets provided (time restriction maybe) use a sorting algorithm such as quick sort??
@@ -330,7 +273,7 @@ function sortByTimestamp($badgeArray, $type){
         </div>
         <table width="95%">
             <tr>
-                <td width=12%>
+                <td width=15%>
                     <div class="side-menu">
                         <ul>
                             <li><a href="selectingGroups.php"><b>MY BADGES</b></a></li>
@@ -489,11 +432,39 @@ data-expiry='$expiry' data-creation='$created' data-criteria='$criteria' data-is
                                             </div>
                                             <div class="modal-footer">
                                                 <br>
-                                                <div><a href="https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME" rel="nofollow" target="_blank"><img src="https://download.linkedin.com/desktop/add2profile/buttons/en_US.png " alt="LinkedIn Add to Profile button"></a></div>
+                                                <div role="button" class="shareButton" onclick="linkedinOptions()"><img src="https://download.linkedin.com/desktop/add2profile/buttons/en_US.png " alt="LinkedIn Add to Profile button"></div>
+                                                <div class="linkedinModal" id="linkedinModal">
+                                                    <div class="linkedin-content">
+                                                        <div class="linkedinHead">
+                                                            <span class="close">&times;</span>
+                                                        </div>
+                                                        <div class="linkedinBody">
+                                                            <h3>Share on LinkedIn</h3>
+                                                            <p class="linked-paragraph">Make your skills, knowledge and achievements visible to your network and become discovered! Add this Open Badge to your LinkedIn Profile:</p>
+                                                            <div role="button" onclick="linkedinProfile()"><a href="https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME" rel="nofollow" target="_blank"><img src="https://download.linkedin.com/desktop/add2profile/buttons/en_US.png " alt="LinkedIn Add to Profile button"></a></div>
+                                                            <div class="linkedinProfile-modal">
+                                                                <div class="linkedinProfile-content">
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="linkedinHead">
+                                                            <br>
+                                                            <p class="linked-paragraph">Add this Open Badge as an Update to Newsfeed:</p>
+                                                        </div>
+                                                        <div class="linkedinBody">
+                                                            <div><a href="https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME" rel="nofollow" target="_blank"><img src="https://download.linkedin.com/desktop/add2profile/buttons/en_US.png " alt="LinkedIn Add to Profile button"></a></div>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+
                                                 <br>
                                             </div>
                                         </div>
                                     </div>
+
                                 </td>
                             </tr>
                         </table>
@@ -513,28 +484,37 @@ data-expiry='$expiry' data-creation='$created' data-criteria='$criteria' data-is
     <script>
         // Get the modal
         var modal = document.getElementById('myModal');
+        var linkedinModal = document.getElementById('linkedinModal');
+        var linkedinProfileModal= document.getElementById('linkedinProfile-modal')
 
         // Get the button that opens the modal
         var btn = document.getElementsByClassName("badgeButton");
 
         // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
+        var span2 = document.getElementsByClassName("close")[1];
 
         // When the user clicks the button, open the modal
         btn.onclick = function() {
             modal.style.display = "block";
+
 
         }
 
         // When the user clicks on <span> (x), close the modal
         span.onclick = function() {
             modal.style.display = "none";
+            linkedinModal.style.display= "none";
+        }
+        span2.onclick = function() {
+            linkedinModal.style.display= "none";
         }
 
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
+                linkedinModal.style.display= "none";
             }
         }
         function showDetails(badge) {
@@ -556,6 +536,15 @@ data-expiry='$expiry' data-creation='$created' data-criteria='$criteria' data-is
             document.getElementById('issuerLink').href= badge.getAttribute('data-issuerUrl');
             document.getElementById('issueEmailDisplay').innerHTML= "Email: " + badge.getAttribute('data-issuerEmail');
             modal.style.display = "block";
+        }
+        function linkedinOptions(){
+            linkedinModal.style.display= "block";
+        }
+        function linkedinProfile(){
+            linkedinModal.style.display= "none";
+            modal.style.display= "none";
+            linkedinProfileModal.style.display= "block";
+
         }
     </script>
 

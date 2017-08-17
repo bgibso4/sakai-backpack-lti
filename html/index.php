@@ -38,7 +38,7 @@ function isLtiLaunch($ok){
 
 function isValidLaunch($ok){
 
-    $validationArray= array("12345"=>'secret');
+    $validationArray= array("westernuniversity"=>'bglmafrmbvmr');
     // Check the consumer key is recognised
     $ok = $ok && array_key_exists($_POST['oauth_consumer_key'], $validationArray);
 
