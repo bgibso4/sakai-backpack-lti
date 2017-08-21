@@ -10,8 +10,8 @@
 
 2. In the top right corner under the Installed Tools tab click the link that says "Install LTI 1.1 Tool"
 
-3. Ensure the Following Information is Filled in:
-    i. Tool Title: Western Badges
+* Ensure the Following Information is Filled in:
+    1. Tool Title: Western Badges
     ii. Icon: Of your choice
     iii. Button Text: Open Badges
     iv. Description: (Optional)
