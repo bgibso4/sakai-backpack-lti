@@ -11,14 +11,14 @@
 2. In the top right corner under the Installed Tools tab click the link that says "Install LTI 1.1 Tool"
 
 3. Ensure the Following Information is Filled in:
-     i. Tool Title: Western Badges
-     ii. Icon: Of your choice
-     iii. Button Text: Open Badges
-     iv. Description: (Optional)
-     v. Launch URl: http://www.westernubadgebackpack.ca/sakai-obf-lti/html/index.php
-     vi. Launch Key: westernuniversity
-     vii. Launch Secret: bglmafrmbvmr
-     viii. Privacy Settings: Ensure you select "Send Email Addresses to External Tool"
+    i. Tool Title: Western Badges
+    ii. Icon: Of your choice
+    iii. Button Text: Open Badges
+    iv. Description: (Optional)
+    v. Launch URl: http://www.westernubadgebackpack.ca/sakai-obf-lti/html/index.php
+    vi. Launch Key: westernuniversity
+    vii. Launch Secret: bglmafrmbvmr
+    viii. Privacy Settings: Ensure you select "Send Email Addresses to External Tool"
      
 4. Now go back to the main page of the Site Info and select the Manage Tools tab
 
