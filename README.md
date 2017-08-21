@@ -18,7 +18,7 @@
      v. Launch URl: http://www.westernubadgebackpack.ca/sakai-obf-lti/html/index.php
      vi. Launch Key: westernuniversity
      vii. Launch Secret: bglmafrmbvmr
-     viii. Privacy Settings: Ensure you check off "Send Email Addresses to External Tool"
+     viii. Privacy Settings: Ensure you select "Send Email Addresses to External Tool"
      
 4. Now go back to the main page of the Site Info and select the Manage Tools tab
 
