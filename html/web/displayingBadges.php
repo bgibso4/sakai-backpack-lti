@@ -161,8 +161,8 @@ function sortByTimestamp($badgeArray, $type){
     </head>
     <?php
         //converting email to userID to find badges
-        //$email= $_SESSION['email'];
-        $email="gibby.b1212@gmail.com";
+        $email= $_SESSION['email'];
+        //$email="gibby.b1212@gmail.com";
         $userInfo= array("email"=>"$email");
 
         $userRetrevial= new \IMSGlobal\LTI\HTTPMessage("https://backpack.openbadges.org/displayer/convert/email", "POST", $userInfo);
@@ -432,7 +432,7 @@ data-expiry='$expiry' data-creation='$created' data-criteria='$criteria' data-is
                                             </div>
                                             <div class="modal-footer">
                                                 <br>
-                                                <div role="button" class="shareButton" onclick="linkedinOptions()"><img src="https://download.linkedin.com/desktop/add2profile/buttons/en_US.png " alt="LinkedIn Add to Profile button"></div>
+                                                <div role="button" class="shareButton" onclick="linkedinOptions()"><img src="../images/linkedin_button.png" alt="LinkedIn Add to Profile button" width="30px" height="30px"></div>
                                                 <div class="linkedinModal" id="linkedinModal">
                                                     <div class="linkedin-content">
                                                         <div class="linkedinHead">
@@ -441,29 +441,126 @@ data-expiry='$expiry' data-creation='$created' data-criteria='$criteria' data-is
                                                         <div class="linkedinBody">
                                                             <h3>Share on LinkedIn</h3>
                                                             <p class="linked-paragraph">Make your skills, knowledge and achievements visible to your network and become discovered! Add this Open Badge to your LinkedIn Profile:</p>
-                                                            <div role="button" onclick="linkedinProfile()"><a href="https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME" rel="nofollow" target="_blank"><img src="https://download.linkedin.com/desktop/add2profile/buttons/en_US.png " alt="LinkedIn Add to Profile button"></a></div>
-                                                            <div class="linkedinProfile-modal">
-                                                                <div class="linkedinProfile-content">
+                                                            <!-- <div role="button" onclick="linkedinProfile()" class="shareButton"><a href="https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME" rel="nofollow" target="_blank"><img src="https://download.linkedin.com/desktop/add2profile/buttons/en_US.png " alt="LinkedIn Add to Profile button"></a></div>
+                                                            -->
+                                                            <div role="button" onclick="linkedinProfile(<?php $this?>)" class="shareButton"><img src="https://download.linkedin.com/desktop/add2profile/buttons/en_US.png " alt="LinkedIn Add to Profile button"></div>
 
-                                                                </div>
-                                                            </div>
                                                         </div>
-                                                        <div class="linkedinHead">
-                                                            <br>
-                                                            <p class="linked-paragraph">Add this Open Badge as an Update to Newsfeed:</p>
-                                                        </div>
-                                                        <div class="linkedinBody">
-                                                            <div><a href="https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME" rel="nofollow" target="_blank"><img src="https://download.linkedin.com/desktop/add2profile/buttons/en_US.png " alt="LinkedIn Add to Profile button"></a></div>
-                                                        </div>
+<!--                                                        <div class="linkedinHead">-->
+<!--                                                            <br>-->
+<!--                                                            <p class="linked-paragraph">Add this Open Badge as an Update to Newsfeed:</p>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="linkedinBody">-->
+<!--                                                            <div><a href="https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME" rel="nofollow" target="_blank"><img src="https://download.linkedin.com/desktop/add2profile/buttons/en_US.png " alt="LinkedIn Add to Profile button"></a></div>-->
+<!--                                                        </div>-->
                                                     </div>
 
 
+                                                </div>
+                                                <div class="twitter">
+                                                    <a class="twitter-share-button"
+                                                       href="https://twitter.com/intent/tweet">
+                                                        Tweet</a>
                                                 </div>
 
                                                 <br>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="linkedinProfile-modal" id="linkedinProfile-modal">
+                                        <div class="linkedinProfile-content">
+                                            <div class="LN-profile-header">
+                                                <span class="close">&times;</span>
+                                                <h2>Add this open Badge to Linkedin</h2>
+                                                <p class="linked-paragraph">Click the copy buttons below to fill in the information in the Add Certification block of your LinkedIn profile.</p>
+                                                <div class="reopen-image">
+                                                    <a href="https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME" rel="nofollow" target="_blank"><img src="https://download.linkedin.com/desktop/add2profile/buttons/en_US.png " alt="LinkedIn Add to Profile button"></a>
+                                                </div>
+                                                <div class="reopen-link">
+                                                    <br>
+                                                    <a href="https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME" target="_blank" class="no-enlarge"> Click here if LinkedIn window doesn't appear automatically.</a>
+                                                </div>
+
+                                            </div>
+                                            <br>
+                                            <div class="LN-profile-body">
+                                                <table class="linedin-table">
+                                                    <tr>
+                                                        <td>
+                                                            <fieldset>
+                                                                <div class="copy-section">
+                                                                    <label class="sub-heading">Certification name</label>
+                                                                    <br>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="js-copied-input1" id="cert-name" name="email-text" readonly value="">
+                                                                    </div>
+                                                                    <div class="copyButton">
+
+                                                                        <div role="button" class="js-textareacopybtn1" ><img src="../images/copy1.png" alt="Copy to clipboard" width="35px" height="35px"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <br>
+                                                                <div class="copy-section">
+                                                                    <label class="sub-heading">Certification authority</label>
+                                                                    <br>
+
+                                                                    <div class="input-group">
+
+                                                                        <input type="text" class="js-copied-input2" id="cert-authority" name="email-text" readonly value="">
+                                                                    </div>
+                                                                    <div class="copyButton">
+                                                                        <div role="button" class="js-textareacopybtn2"><img src="../images/copy1.png" alt="Copy to clipboard" width="35px" height="35px"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <br>
+                                                                <div class="copy-section">
+                                                                    <label class="sub-heading">License number</label>
+                                                                    <br>
+
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="js-copied-input3" id="license-num" name="email-text" readonly value="">
+                                                                    </div>
+                                                                    <div class="copyButton">
+                                                                        <div role="button" class="js-textareacopybtn3"><img src="../images/copy1.png" alt="Copy to clipboard" width="35px" height="35px"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <br>
+                                                                <div class="copy-section">
+                                                                    <label class="sub-heading">Time Period</label>
+
+                                                                    <div>
+                                                                        <p class="linked-paragraph" id="time-frame"></p>
+                                                                    </div>
+                                                                </div>
+                                                                <br>
+                                                                <div class="copy-section">
+                                                                    <label class="sub-heading">Certification url</label>
+                                                                    <br>
+
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="js-copied-input4" id="cert-url" name="email-text" readonly value="">
+                                                                    </div>
+                                                                    <div class="copyButton">
+                                                                        <div role="button" class="js-textareacopybtn4"><img src="../images/copy1.png" alt="Copy to clipboard" width="35px" height="35px"></div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </fieldset>
+                                                        </td>
+                                                        <td>
+                                                            <label class="sub-heading">Tutorial video</label>
+                                                            <div class="tutorial-video">
+                                                                <iframe width="350" height="250" src="https://www.youtube.com/embed/YJJ8lZshqbY" frameborder="0"></iframe>
+                                                            </div>
+
+                                                        </td>
+
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
 
                                 </td>
                             </tr>
@@ -485,7 +582,7 @@ data-expiry='$expiry' data-creation='$created' data-criteria='$criteria' data-is
         // Get the modal
         var modal = document.getElementById('myModal');
         var linkedinModal = document.getElementById('linkedinModal');
-        var linkedinProfileModal= document.getElementById('linkedinProfile-modal')
+        var linkedinProfileModal= document.getElementById('linkedinProfile-modal');
 
         // Get the button that opens the modal
         var btn = document.getElementsByClassName("badgeButton");
@@ -493,30 +590,42 @@ data-expiry='$expiry' data-creation='$created' data-criteria='$criteria' data-is
         // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
         var span2 = document.getElementsByClassName("close")[1];
+        var span3 = document.getElementsByClassName("close")[2];
 
         // When the user clicks the button, open the modal
         btn.onclick = function() {
             modal.style.display = "block";
-
-
-        }
+        };
 
         // When the user clicks on <span> (x), close the modal
         span.onclick = function() {
             modal.style.display = "none";
             linkedinModal.style.display= "none";
-        }
+        };
         span2.onclick = function() {
             linkedinModal.style.display= "none";
-        }
+        };
+        span3.onclick = function(){
+            linkedinProfileModal.style.display= "none";
+        };
 
         // When the user clicks anywhere outside of the modal, close it
+
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
                 linkedinModal.style.display= "none";
+                linkedinProfileModal.style.display= "none";
             }
-        }
+            else if (event.target == linkedinProfileModal) {
+                modal.style.display = "none";
+                linkedinModal.style.display= "none";
+                linkedinProfileModal.style.display= "none";
+            }
+            else if (event.target == linkedinModal) {
+                linkedinModal.style.display= "none";
+            }
+        };
         function showDetails(badge) {
 
             document.getElementById('modalTitle').innerHTML = badge.getAttribute("data-badgeName");
@@ -536,16 +645,82 @@ data-expiry='$expiry' data-creation='$created' data-criteria='$criteria' data-is
             document.getElementById('issuerLink').href= badge.getAttribute('data-issuerUrl');
             document.getElementById('issueEmailDisplay').innerHTML= "Email: " + badge.getAttribute('data-issuerEmail');
             modal.style.display = "block";
+
+            document.getElementById('cert-name').value= badge.getAttribute('data-badgeName');
+            document.getElementById('cert-authority').value= badge.getAttribute('data-issuerName');
+            document.getElementById('license-num').value= badge.getAttribute('data-badgeName');
+            document.getElementById('time-frame').innerHTML= badge.getAttribute('data-creation') + " - " + badge.getAttribute('data-expiry');
+            document.getElementById('cert-url').value= badge.getAttribute('data-criteria');
         }
         function linkedinOptions(){
             linkedinModal.style.display= "block";
         }
         function linkedinProfile(){
+            linkedinProfileModal.style.display= "block";
             linkedinModal.style.display= "none";
             modal.style.display= "none";
-            linkedinProfileModal.style.display= "block";
+            document.getElementById('cert-name').value= badge.getAttribute('data-badgeName')
+
 
         }
-    </script>
+
+        var copyTextareaBtn1 = document.querySelector('.js-textareacopybtn1');
+
+        copyTextareaBtn1.addEventListener('click', function(event) {
+            var copyTextarea = document.querySelector('.js-copied-input1');
+            copyTextarea.select();
+
+            try {
+                var successful = document.execCommand('copy');
+                var msg = successful ? 'successful' : 'unsuccessful';
+                console.log('Copying text command was ' + msg);
+            } catch (err) {
+                console.log('Oops, unable to copy');
+            }
+        });
+        var copyTextareaBtn2 = document.querySelector('.js-textareacopybtn2');
+
+        copyTextareaBtn2.addEventListener('click', function(event) {
+            var copyTextarea = document.querySelector('.js-copied-input2');
+            copyTextarea.select();
+
+            try {
+                var successful = document.execCommand('copy');
+                var msg = successful ? 'successful' : 'unsuccessful';
+                console.log('Copying text command was ' + msg);
+            } catch (err) {
+                console.log('Oops, unable to copy');
+            }
+        });
+        var copyTextareaBtn3 = document.querySelector('.js-textareacopybtn3');
+
+        copyTextareaBtn3.addEventListener('click', function(event) {
+            var copyTextarea = document.querySelector('.js-copied-input3');
+            copyTextarea.select();
+
+            try {
+                var successful = document.execCommand('copy');
+                var msg = successful ? 'successful' : 'unsuccessful';
+                console.log('Copying text command was ' + msg);
+            } catch (err) {
+                console.log('Oops, unable to copy');
+            }
+        });
+        var copyTextareaBtn4 = document.querySelector('.js-textareacopybtn4');
+
+        copyTextareaBtn4.addEventListener('click', function(event) {
+            var copyTextarea = document.querySelector('.js-copied-input4');
+            copyTextarea.select();
+
+            try {
+                var successful = document.execCommand('copy');
+                var msg = successful ? 'successful' : 'unsuccessful';
+                console.log('Copying text command was ' + msg);
+            } catch (err) {
+                console.log('Oops, unable to copy');
+            }
+        });
+
+//    </script>
 
 </html>

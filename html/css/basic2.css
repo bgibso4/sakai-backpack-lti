@@ -149,7 +149,7 @@ nav li{
 .close {
     color: #aaaaaa;
     float: right;
-    font-size: 28px;
+    font-size: 34px;
     font-weight: bold;
 }
 
@@ -282,6 +282,16 @@ nav li{
     animation-name: animatetop;
     animation-duration: 0.4s
 }
+.LN-profile-header{
+    padding: 2px 16px;
+    background-color: white;
+    color: #5a5257;;
+}
+.LN-profile-body{
+    padding: 2px 16px;
+    background-color: white;
+}
+
 
 /* Add Animation */
 @-webkit-keyframes animatetop {
@@ -349,4 +359,44 @@ nav li{
 }
 .about-list{
     list-style-type: square;
+}
+.sub-heading{
+    font-weight: bold;
+    color: #5a5257;
+}
+.no-enlarge:hover{
+    font-weight: normal;
+    color: #550055;
+}
+.no-enlarge{
+    font-size: 13px;
+}
+.reopen-image{
+    float: left;
+}
+.reopen-link{
+    line-height: 75%;
+}
+.js-copied-input1,
+.js-copied-input2,
+.js-copied-input3,
+.js-copied-input4{
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 3px 0 0 3px;
+    color: #555;
+    padding: 6px 12px;
+    height: 34px;
+}
+.js-textareacopybtn1:hover,
+.js-textareacopybtn2:hover,
+.js-textareacopybtn3:hover,
+.js-textareacopybtn4:hover{
+    cursor: pointer;
+}
+.input-group{
+    float: left;
+}
+.copyButton{
+    display: inline-block;
 }

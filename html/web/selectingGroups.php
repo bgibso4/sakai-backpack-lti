@@ -20,8 +20,8 @@
             }
         }
         //converting email to userID to find badges
-        //$email= $_SESSION['email'];
-        $email="gibby.b1212@gmail.com";
+        $email= $_SESSION['email'];
+        //$email="gibby.b1212@gmail.com";
         $userInfo= array("email"=>"$email");
 
         $userRetrevial= new \IMSGlobal\LTI\HTTPMessage("https://backpack.openbadges.org/displayer/convert/email", "POST", $userInfo);
