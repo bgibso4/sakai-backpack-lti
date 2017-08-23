@@ -1,4 +1,4 @@
-# Sakai-obf-lti #
+# Sakai-backpack-lti #
 
 * This application integrates with the Mozilla Backpack API to allow badges to be viewed inside of the Sakai Leaning Platform
 
