@@ -130,15 +130,14 @@ function getErrorPage($msg) {
 
 }
 $ok=true;
-//$ok= isLtiLaunch($ok);
-//$ok= isValidLaunch($ok);
-//$ok= checkingOtherRequirements($ok);
+$ok= isLtiLaunch($ok);
+$ok= isValidLaunch($ok);
+$ok= checkingOtherRequirements($ok);
 if($ok){
     newSession();
 }
 //converting email to userID to find badges
-//$email= $_POST['lis_person_contact_email_primary'];
-$email="gibby.b1212@gmail.com";
+$email= $_POST['lis_person_contact_email_primary'];
 $userInfo= array("email"=>"$email");
 
 $userRetrevial= new \IMSGlobal\LTI\HTTPMessage("https://backpack.openbadges.org/displayer/convert/email", "POST", $userInfo);

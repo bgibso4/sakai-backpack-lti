@@ -32,6 +32,7 @@ function initializingBadge($instance){
     $newBadge->setDescription($badge->description);
     $newBadge->setCriteriaUrl($badge->criteria);
     $newBadge->setId($badge->id);
+    $newBadge->setUid($instance->assertion->uid);
 
     //these checks should handle either case of non-mandatory fields being present
     if($instance->assertion->expires != null && property_exists($instance->assertion, "expires")){
@@ -136,12 +137,14 @@ function sortByTimestamp($badgeArray, $type){
             // loop and compare each item in the array to the pivot value, place item in appropriate partition
             for($i = 1; $i < count($badgeArray); $i++)
             {
-                if($badgeArray[$i]->getExpiry() < $pivot->getExpiry()){
+                if($badgeArray[$i]->getExpiry() < $pivot->getExpiry() || $badgeArray[$i]->getExpiry()==null){
                     $left[] = $badgeArray[$i];
                 }
                 else{
                     $right[] = $badgeArray[$i];
                 }
+
+
             }
         }
 
@@ -155,14 +158,13 @@ function sortByTimestamp($badgeArray, $type){
     <head>
         <title>All Badges</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="../css/basic2.css">
+        <link rel="stylesheet" type="text/css" href="../css/platform.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     </head>
     <?php
         //converting email to userID to find badges
         $email= $_SESSION['email'];
-        //$email="gibby.b1212@gmail.com";
         $userInfo= array("email"=>"$email");
 
         $userRetrevial= new \IMSGlobal\LTI\HTTPMessage("https://backpack.openbadges.org/displayer/convert/email", "POST", $userInfo);
@@ -191,23 +193,9 @@ function sortByTimestamp($badgeArray, $type){
             $imageUrl= $badgeInfo->badges[0]->imageUrl;
 
             $badgeArray= [];
-            $newBadge= new badge();
-            $newBadge->setName("Ultimate Coder");
-            $newBadge->setDescription("Superior being displaying other worldly skills in coding");
-            $newBadge->setId("2132312313");
-            $newBadge->setExpiry(time());
-            $newBadge->setCreationTime(time());
-            $newIssuer= new obf_issuer("God","god@gmail.com", "http://www.google.ca");
-            $newBadge->setIssuer($newIssuer);
-            $newBadge->setImage("https://pbs.twimg.com/profile_images/869496879880568832/peABezDn_400x400.jpg");
-            $newBadge->setCriteriaUrl('https://openbadgefactory.com/v1/badge/_/OTNL2EaFL1a3S/criteria.html?v=2.0&event=OTNLQ5aFL1a3X');
-            $newBadge->setTags(['Ben', 'Gibson']);
-
-
             for($i=0; $i<$numBadges; $i++){
                 $badgeArray[$i]= initializingBadge($badgeInfo->badges[$i]);
             }
-            array_push($badgeArray, $newBadge);
 
 
             //to sort the badges if the option gets provided (time restriction maybe) use a sorting algorithm such as quick sort??
@@ -293,13 +281,10 @@ function sortByTimestamp($badgeArray, $type){
                                     </td>
                                     <td>
                                         <div class="groupChoices">
-                                            <!--<input list="choices" id="grouSearch" name="grouChoice">-->
                                             <select  name="groupChoice" id="groupSearch" form="group" class="groupText">
                                             </select>
                                             <script type="text/javascript">
                                                 var allGroups = <?php echo json_encode($groups)?>;
-
-                                                //var options = '<option class="groupText" selected="selected" disabled="disabled" hidden="hidden"> </option>';
                                                 var options = '';
 
                                                 for(var i = 0; i < allGroups.length; i++) {
@@ -371,29 +356,32 @@ function sortByTimestamp($badgeArray, $type){
                                             $name= $inst->getName();
                                             $imageLink= $inst->getImage();
                                             $description= $inst->getDescription();
-                                            $expiry= $inst->convertTimestamp($inst->getExpiry());
+                                            if($inst->getExpiry()!==null){
+                                                $expiry= $inst->convertTimestamp($inst->getExpiry());
+                                            }
+                                            else {
+                                                $expiry = "none";
+                                            }
                                             $created= $inst->convertTimestamp($inst->getCreationTime());
                                             $criteria= $inst->getCriteriaUrl();
                                             $tags= $inst->tagsToString();
+                                            $uid= $inst->getUid();
 
                                             $issuerName=$inst->getIssuer()->getName();
                                             $issuerEmail=$inst->getIssuer()->getEmail();
                                             $issuerUrl= $inst->getIssuer()->getUrl();
 
                                             echo("<div role=\"button\" onclick=\"showDetails(this)\" class=\"badgeButton\" data-badgeName='$name' data-issuerName='$issuerName' data-badgeImage='$imageLink' data-description='$description'
-data-expiry='$expiry' data-creation='$created' data-criteria='$criteria' data-issuerEmail='$issuerEmail' data-issuerUrl='$issuerUrl' data-tags='$tags'>");
+data-expiry='$expiry' data-creation='$created' data-criteria='$criteria' data-issuerEmail='$issuerEmail' data-issuerUrl='$issuerUrl' data-tags='$tags' data-uid='$uid'>");
 
                                             echo("<img src='$imageLink' width=\"150px\" height=\"150px\">");
                                             echo("<br>");
                                             echo("<div class=\"badgeTitle\" id=\"\">$name</div>");
                                             echo("<hr>");
                                             echo("<div class=\"badgeIssuerName\">$issuerName</div>");
-
                                             echo("</div>");
                                         }
                                     }
-
-
 
                                     ?>
 
@@ -433,6 +421,14 @@ data-expiry='$expiry' data-creation='$created' data-criteria='$criteria' data-is
                                             <div class="modal-footer">
                                                 <br>
                                                 <div role="button" class="shareButton" onclick="linkedinOptions()"><img src="../images/linkedin_button.png" alt="LinkedIn Add to Profile button" width="30px" height="30px"></div>
+                                                <div class="shareButton" role="button">
+                                                    <a href="https://twitter.com/intent/tweet" id="twitterShare" target="_blank"><img src="../images/twitter_button.png" width="30px" height="30px"></a>
+                                                </div>
+                                                <div role="button" class="shareButton">
+                                                    <a id="facebookShare" href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank"><img src="../images/facebook_button.png" width="30px" height="30px"></a>
+                                                </div>
+
+                                                <br>
                                                 <div class="linkedinModal" id="linkedinModal">
                                                     <div class="linkedin-content">
                                                         <div class="linkedinHead">
@@ -441,28 +437,14 @@ data-expiry='$expiry' data-creation='$created' data-criteria='$criteria' data-is
                                                         <div class="linkedinBody">
                                                             <h3>Share on LinkedIn</h3>
                                                             <p class="linked-paragraph">Make your skills, knowledge and achievements visible to your network and become discovered! Add this Open Badge to your LinkedIn Profile:</p>
-                                                            <!-- <div role="button" onclick="linkedinProfile()" class="shareButton"><a href="https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME" rel="nofollow" target="_blank"><img src="https://download.linkedin.com/desktop/add2profile/buttons/en_US.png " alt="LinkedIn Add to Profile button"></a></div>
-                                                            -->
-                                                            <div role="button" onclick="linkedinProfile(<?php $this?>)" class="shareButton"><img src="https://download.linkedin.com/desktop/add2profile/buttons/en_US.png " alt="LinkedIn Add to Profile button"></div>
+                                                            <div role="button" onclick="linkedinProfile()" class="linkedinShareButton"><a href="https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME" rel="nofollow" target="_blank"><img src="https://download.linkedin.com/desktop/add2profile/buttons/en_US.png " alt="LinkedIn Add to Profile button"></a></div>
+
+                                                            <br>
 
                                                         </div>
-<!--                                                        <div class="linkedinHead">-->
-<!--                                                            <br>-->
-<!--                                                            <p class="linked-paragraph">Add this Open Badge as an Update to Newsfeed:</p>-->
-<!--                                                        </div>-->
-<!--                                                        <div class="linkedinBody">-->
-<!--                                                            <div><a href="https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME" rel="nofollow" target="_blank"><img src="https://download.linkedin.com/desktop/add2profile/buttons/en_US.png " alt="LinkedIn Add to Profile button"></a></div>-->
-<!--                                                        </div>-->
+
                                                     </div>
-
-
                                                 </div>
-                                                <div class="twitter">
-                                                    <a class="twitter-share-button"
-                                                       href="https://twitter.com/intent/tweet">
-                                                        Tweet</a>
-                                                </div>
-
                                                 <br>
                                             </div>
                                         </div>
@@ -571,12 +553,6 @@ data-expiry='$expiry' data-creation='$created' data-criteria='$criteria' data-is
         </table>
 
 
-
-        <!-- need to send the userID and the groupID with the form therefore we gotta make it a post and do something to figure out how to get the group ID
-                Or i guess we could just send the group name and userID and then figure out everything else on the next page(group search twice, little inefficient but fuck it
-        -->
-
-
     </body>
     <script>
         // Get the modal
@@ -628,6 +604,7 @@ data-expiry='$expiry' data-creation='$created' data-criteria='$criteria' data-is
         };
         function showDetails(badge) {
 
+            //initializing content for the main modal based on each badge
             document.getElementById('modalTitle').innerHTML = badge.getAttribute("data-badgeName");
             document.getElementById('badgeImage').src= badge.getAttribute('data-badgeImage');
             document.getElementById('badgeImage').width= 200;
@@ -646,11 +623,19 @@ data-expiry='$expiry' data-creation='$created' data-criteria='$criteria' data-is
             document.getElementById('issueEmailDisplay').innerHTML= "Email: " + badge.getAttribute('data-issuerEmail');
             modal.style.display = "block";
 
+            //creating the info for linkedin sharing
             document.getElementById('cert-name').value= badge.getAttribute('data-badgeName');
             document.getElementById('cert-authority').value= badge.getAttribute('data-issuerName');
-            document.getElementById('license-num').value= badge.getAttribute('data-badgeName');
+            document.getElementById('license-num').value= badge.getAttribute('data-uid');
             document.getElementById('time-frame').innerHTML= badge.getAttribute('data-creation') + " - " + badge.getAttribute('data-expiry');
             document.getElementById('cert-url').value= badge.getAttribute('data-criteria');
+
+            //creating a tweet
+            document.getElementById('twitterShare').href= "https://twitter.com/intent/tweet"+"?text="+"Western badges: " +  encodeURIComponent(badge.getAttribute('data-badgeName').trim())+"&url="+encodeURIComponent(badge.getAttribute('data-criteria').trim())+"&hashtags=WesternBadges";
+
+            //sharing with facebook
+            document.getElementById('facebookShare').href= "https://www.facebook.com/sharer/sharer.php?u="+badge.getAttribute('data-criteria');
+
         }
         function linkedinOptions(){
             linkedinModal.style.display= "block";

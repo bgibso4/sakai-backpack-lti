@@ -109,13 +109,13 @@ input{
     list-style-type: none;
     display: inline;
 
-    
+
 }
 nav li{
     display: inline;
     padding-right: 15px;
     font-size: 20px;
-    
+
 }
 .nav-list{
 
@@ -349,7 +349,7 @@ nav li{
     text-align: center;
     font-size: 20px;
     color: orange
-    
+
 }
 .about-table2{
     text-align: center;

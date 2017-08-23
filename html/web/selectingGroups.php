@@ -2,14 +2,13 @@
     <head>
         <title>All Badges</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="../css/basic2.css">
+        <link rel="stylesheet" type="text/css" href="../css/platform.css">
     
     </head>
     <body>
         <?php
         session_start();
         function __autoload($className){
-            //$className= strtolower($className);
             $path= "..\ims-lti"."\\{$className}.php";
             $path= str_replace("\\", "/", $path);
             if (file_exists($path)){
@@ -21,7 +20,6 @@
         }
         //converting email to userID to find badges
         $email= $_SESSION['email'];
-        //$email="gibby.b1212@gmail.com";
         $userInfo= array("email"=>"$email");
 
         $userRetrevial= new \IMSGlobal\LTI\HTTPMessage("https://backpack.openbadges.org/displayer/convert/email", "POST", $userInfo);
@@ -32,11 +30,6 @@
             $groupsInfo= new \IMSGlobal\LTI\HTTPMessage("https://backpack.openbadges.org/displayer/$userid/groups.json", "GET");
             $groupsInfo->send();
             $groupData= json_decode($groupsInfo->response);
-            if($groupData->groups !== ""){
-                foreach($groupData->groups as $element){
-                    //print_r($element);
-                }
-            }
             $groups= array();
             foreach($groupData->groups as $ele){
                 array_push($groups, $ele->name);
@@ -48,7 +41,6 @@
             $id_error= $recData->error;
         }
 
-        // LOOK INTO LAUNCHING A PAGE FOR IF THE EMAIL HAS NOT BEEN REGISTERED YET. THIS WILL CAUSE A HUGE ERROR IF NOT
         ?>
         <header id="navbar">
             
@@ -103,13 +95,11 @@
                                     </td>
                                     <td>
                                         <div class="groupChoices">
-                                            <!--<input list="choices" id="grouSearch" name="grouChoice">-->
                                             <select  name="groupChoice" id="groupSearch" form="group" class="groupText">
                                             </select>
                                             <script type="text/javascript">
                                                 var allGroups = <?php echo json_encode($groups)?>;
 
-                                                //var options = '<option class="groupText" selected="selected" disabled="disabled" hidden="hidden"> </option>';
                                                 var options='';
                                                 for(var i = 0; i < allGroups.length; i++) {
                                                     options += '<option class="groupText" value="'+allGroups[i]+'">'+allGroups[i]+'</option>';
@@ -163,8 +153,6 @@
                                     </label>
                                 </div>
                             </fieldset>
-
-
                             <br>
                             <input type="submit" value="Confirm" class="submitButton">
                         </div>
@@ -173,25 +161,6 @@
 
                 </td>
             </tr>
-            
-
-
         </table>
-
-        
     </body>
-    <script>
-        function checkForm()    {
-
-            var condition = true;
-            if ('<?php echo $_GET['groupChoice']?>'===" "){
-                alert("Please select a group");
-                condition = false;
-            }
-
-            return condition;
-        }
-    </script>
-
-
 </html>

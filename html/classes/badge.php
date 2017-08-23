@@ -17,6 +17,10 @@ class badge
      */
     private $id = null;
     /**
+     * @var string The unique character id
+     */
+    private $uid= null;
+    /**
      * @var string The name of the badge
      */
     private $name = '';
@@ -94,6 +98,23 @@ class badge
     }
 
     /**
+     * @return string Returns the unique id of the badge
+     */
+    public function getUid(){
+        if($this->uid!=null){
+            return $this->uid;
+        }
+        throw new InvalidArgumentException();
+    }
+
+    /**
+     * @param string $uid Unique id of the badge
+     */
+    public function setUid($uid){
+        $this->uid= $uid;
+    }
+
+    /**
      * @return string Returns the url of the image for the badge
      */
     public function getImage(){
@@ -129,10 +150,7 @@ class badge
      * @return string returns the expiry date of the badge
      */
     public function getExpiry(){
-        if($this->expiresby != null){
-            return $this->expiresby;
-        }
-        throw new InvalidArgumentException();
+        return $this->expiresby;
     }
     /**
      * @param string $expiry Expiry date of badge
