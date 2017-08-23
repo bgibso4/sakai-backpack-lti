@@ -2,31 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8315c5a-3348-4239-80bf-9c421e60d089" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/html/css/platform.css" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/html/classes/retrievingBadges.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/html/css/basic.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/html/images/Western_Logo_Full_RGB.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/html/images/linkedin.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/html/images/photothumb.db" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/html/images/western-logo.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/html/images/western-wallpaper.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/html/images/westernBadge-logo.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/html/images/westernBadges-logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/html/images/westernImage-enhanced.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/html/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/html/launchVerification.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/html/lti-launch.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/html/validLaunch.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/images/mozillaLogo.jpg" afterPath="$PROJECT_DIR$/html/images/mozillaLogo.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/ims-lti/IMSGlobal" afterPath="$PROJECT_DIR$/html/ims-lti/IMSGlobal" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/classes/badge.php" afterPath="$PROJECT_DIR$/html/classes/badge.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/css/basic2.css" afterPath="$PROJECT_DIR$/html/css/basic2.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/index.php" afterPath="$PROJECT_DIR$/html/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/web/about.html" afterPath="$PROJECT_DIR$/html/web/about.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/web/displayingBadges.php" afterPath="$PROJECT_DIR$/html/web/displayingBadges.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/web/help.html" afterPath="$PROJECT_DIR$/html/web/help.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/web/selectingGroups.php" afterPath="$PROJECT_DIR$/html/web/selectingGroups.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -51,8 +28,8 @@
       <file leaf-file-name="displayingBadges.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/web/displayingBadges.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="37" lean-forward="true" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+            <state relative-caret-position="374">
+              <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
               <folding>
                 <marker date="1503504688963" expanded="true" signature="15986:16137" ph="..." />
                 <marker date="1503504688963" expanded="true" signature="15986:16153" ph="..." />
@@ -194,6 +171,16 @@
     <panes>
       <pane id="ProjectPane">
         <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sakai-obf-lti" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sakai-obf-lti" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="sakai-obf-lti" />
@@ -471,16 +458,15 @@
       <workItem from="1503068969934" duration="7036000" />
       <workItem from="1503323998662" duration="9055000" />
       <workItem from="1503411768613" duration="8769000" />
-      <workItem from="1503497630998" duration="6608000" />
+      <workItem from="1503497630998" duration="7495000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160832000" />
+    <option name="totallyTimeSpent" value="161719000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.185625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -911,8 +897,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/web/displayingBadges.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="37" lean-forward="true" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+        <state relative-caret-position="374">
+          <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
           <folding>
             <marker date="1503504688963" expanded="true" signature="15986:16137" ph="..." />
             <marker date="1503504688963" expanded="true" signature="15986:16153" ph="..." />
